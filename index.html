@@ -4,229 +4,307 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo JELSA | Infraestructura, Movilidad y Tecnología</title>
+    <!-- Tipografías elegantes para la identidad corporativa -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0d1b2a;
-            --secondary-color: #1b263b;
-            --accent-color: #00b4d8;
-            --text-light: #f8f9fa;
-            --text-dark: #212529;
-            --bg-light: #f4f6f9;
+            --verde-mex: #00843D;
+            --rojo-mex: #C8102E;
+            --negro-titulo: #000000;
+            --gris-texto: #333333;
+            --gris-fondo: #f9f9f9;
+            --blanco: #ffffff;
+            --transicion: all 0.3s ease;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
+            color: var(--gris-texto);
+            background-color: var(--blanco);
+            scroll-behavior: smooth;
         }
 
+        /* --- Header / Barra de Navegación --- */
         header {
-            background-color: var(--primary-color);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+            background: var(--blanco);
+            padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .logo {
-            color: var(--text-light);
-            font-size: 24px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--accent-color);
-        }
-
-        nav ul {
+        /* Logotipo Maquetado en Código */
+        .logo-box {
             display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
-
-        .hero {
-            background: linear-gradient(135deg, rgba(13, 27, 42, 0.95) 100%, rgba(27, 38, 59, 0.8)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
             text-align: center;
-            color: var(--text-light);
-            padding: 20px;
-            margin-top: 60px;
+            text-decoration: none;
+            color: var(--negro-titulo);
+            padding: 5px 0;
         }
 
-        .hero-content h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+        .logo-initials {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1;
             letter-spacing: 2px;
         }
 
-        .hero-content p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #ccc;
+        .logo-main-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-top: 2px;
+            text-transform: uppercase;
         }
 
-        .btn-cta {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
+        .logo-sub-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        .logo-lines {
+            width: 100%;
+            height: 4px;
+            margin-top: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5px;
+        }
+
+        .line-green {
+            height: 1.5px;
+            background-color: var(--verde-mex);
+            width: 100%;
+        }
+
+        .line-red {
+            height: 1.5px;
+            background-color: var(--rojo-mex);
+            width: 100%;
+        }
+
+        /* Menú de Navegación */
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--gris-texto);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transicion);
+        }
+
+        nav ul li a:hover {
+            color: var(--verde-mex);
+        }
+
+        .btn-contacto-nav {
+            background-color: var(--rojo-mex);
+            color: var(--blanco) !important;
+            padding: 10px 20px;
+            border-radius: 3px;
+        }
+
+        .btn-contacto-nav:hover {
+            background-color: var(--verde-mex);
+        }
+
+        /* --- Hero Banner --- */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--blanco);
+            padding: 0 10%;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            font-weight: 300;
+        }
+
+        .btn-hero {
+            background-color: var(--rojo-mex);
+            color: var(--blanco);
             padding: 12px 30px;
             border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
+            border-radius: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
             cursor: pointer;
-            text-decoration: none;
-            transition: background 0.3s, transform 0.2s;
-            display: inline-block;
+            letter-spacing: 1px;
+            transition: var(--transicion);
         }
 
-        .btn-cta:hover {
-            background-color: #0077b6;
-            transform: translateY(-3px);
-            color: #fff;
+        .btn-hero:hover {
+            background-color: var(--verde-mex);
         }
 
+        /* --- Estilos de Secciones --- */
         section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 80px 10%;
+        }
+
+        .section-title-container {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
         .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            color: var(--negro-titulo);
+            margin-bottom: 10px;
+        }
+
+        .deco-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--verde-mex) 50%, var(--rojo-mex) 50%);
+            margin: 0 auto;
+        }
+
+        /* --- Quiénes Somos --- */
+        .intro-text {
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-            position: relative;
-            color: var(--primary-color);
+            font-size: 1.15rem;
+            max-width: 850px;
+            margin: 0 auto 50px;
+            color: var(--gris-texto);
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--accent-color);
-            margin: 10px auto 0 auto;
-            border-radius: 2px;
-        }
-
-        .divisions-grid {
+        .mv-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .mv-card {
+            background-color: var(--gris-fondo);
+            padding: 40px;
+            border-radius: 4px;
+            border-top: 4px solid var(--verde-mex);
+            transition: var(--transicion);
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .mv-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--negro-titulo);
+            margin-bottom: 15px;
+        }
+
+        /* --- Servicios / Divisiones Corporativas --- */
+        .services-section {
+            background-color: var(--gris-fondo);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
-        .division-card {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 40px 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 4px solid var(--primary-color);
+        .service-card {
+            background: var(--blanco);
+            padding: 35px;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border-bottom: 3px solid transparent;
+            transition: var(--transicion);
         }
 
-        .division-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border-top-color: var(--accent-color);
+        .service-card:hover {
+            border-bottom: 3px solid var(--rojo-mex);
+            transform: translateY(-3px);
         }
 
-        .division-icon {
-            font-size: 40px;
-            color: var(--accent-color);
+        .service-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
             margin-bottom: 20px;
+            color: var(--verde-mex);
         }
 
-        .division-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--primary-color);
+        .service-list {
+            list-style: none;
         }
 
-        .partnerships {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            padding: 80px 20px;
-            max-width: 100%;
+        .service-list li {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
         }
 
-        .partnerships-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .partnerships .section-title {
-            color: var(--text-light);
-        }
-
-        .partners-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: center;
-            margin-top: 40px;
-        }
-
-        .partner-item {
-            background: rgba(255,255,255,0.1);
-            padding: 20px 40px;
-            border-radius: 5px;
-            margin: 15px;
-            min-width: 200px;
-            text-align: center;
+        .service-list li::before {
+            content: '•';
+            color: var(--rojo-mex);
             font-weight: bold;
-            font-size: 18px;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
         }
 
+        /* --- Contacto --- */
         .contact-container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
-            background-color: #fff;
+            background: var(--blanco);
             padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         .form-group {
@@ -235,151 +313,242 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .form-group input, .form-group textarea {
+        input, select, textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 16px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transicion);
         }
 
-        .form-group textarea {
-            resize: vertical;
-            height: 150px;
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--verde-mex);
+            outline: none;
         }
 
         .btn-submit {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 12px 20px;
+            background-color: var(--verde-mex);
+            color: var(--blanco);
             border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
             width: 100%;
-            transition: background 0.3s;
+            padding: 15px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: var(--transicion);
         }
 
         .btn-submit:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--negro-titulo);
         }
 
+        /* --- Filosofía --- */
+        .philosophy-banner {
+            background-color: var(--negro-titulo);
+            color: var(--blanco);
+            text-align: center;
+            padding: 80px 10%;
+        }
+
+        .philosophy-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .philosophy-banner p {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* --- Footer --- */
         footer {
-            background-color: var(--primary-color);
-            color: var(--text-light);
+            background-color: #0d0d0d;
+            color: rgba(255,255,255,0.4);
             text-align: center;
             padding: 30px 20px;
-            font-size: 14px;
+            font-size: 0.8rem;
+            border-top: 1px solid #1a1a1a;
         }
 
+        /* --- Adaptabilidad Móvil --- */
         @media (max-width: 768px) {
-            .nav-container {
+            header {
                 flex-direction: column;
+                padding: 20px;
             }
+
             nav ul {
-                margin-top: 15px;
+                margin-top: 20px;
+                flex-direction: column;
+                gap: 15px;
             }
-            .hero-content h1 {
-                font-size: 32px;
+
+            nav ul li {
+                margin-left: 0;
             }
-            .hero-content p {
-                font-size: 16px;
+
+            section {
+                padding: 60px 5%;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Cabecera -->
+    <!-- Header / Menú -->
     <header>
-        <div class="nav-container">
-            <div class="logo">Grupo<span>JELSA</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#divisiones">Divisiones</a></li>
-                    <li><a href="#alianzas">Alianzas</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
+        <a href="#inicio" class="logo-box">
+            <span class="logo-initials">GJ</span>
+            <span class="logo-main-text">Grupo Jelsa</span>
+            <span class="logo-sub-text">México</span>
+            <div class="logo-lines">
+                <div class="line-green"></div>
+                <div class="line-red"></div>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Quiénes Somos</a></li>
+                <li><a href="#servicios">Divisiones</a></li>
+                <li><a href="#contacto" class="btn-contacto-nav">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Banner -->
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1>LIDERANDO EL FUTURO EMPRESARIAL</h1>
-            <p>Impulsamos el desarrollo tecnológico, la infraestructura de seguridad de vanguardia y soluciones de movilidad sostenible que transforman el entorno corporativo y público.</p>
-            <a href="#divisiones" class="btn-cta">Descubrir Divisiones</a>
+            <h1>GRUPO JELSA MÉXICO</h1>
+            <p>Impulsando el desarrollo industrial y comercial mediante infraestructura estratégica, soluciones integrales de movilidad y tecnología avanzada de seguridad corporativa.</p>
+            <button class="btn-hero" onclick="location.href='#contacto'">Solicitar Información</button>
         </div>
     </section>
 
-    <!-- Divisiones -->
-    <section id="divisiones">
-        <h2 class="section-title">Nuestras Divisiones</h2>
-        <div class="divisions-grid">
-            <div class="division-card">
-                <div class="division-icon">🛡️</div>
-                <h3>Tecnología y Seguridad Pública</h3>
-                <p>Desarrollo e integración de infraestructura crítica y software avanzado de videovigilancia y seguridad, colaborando con los más altos estándares del sector.</p>
+    <!-- Quiénes Somos / Misión / Visión -->
+    <section id="nosotros">
+        <div class="section-title-container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <div class="deco-line"></div>
+        </div>
+        <p class="intro-text">
+            Somos un grupo corporativo diversificado líder en el norte de México, comprometido con la excelencia operativa y la creación de valor sostenible mediante soluciones estratégicas en infraestructura, transporte y desarrollo digital.
+        </p>
+
+        <div class="mv-grid">
+            <div class="mv-card">
+                <h3>Nuestra Misión</h3>
+                <p>Desarrollar e implementar soluciones integrales de alta calidad en infraestructura, movilidad inteligente y tecnología de vanguardia que atiendan las demandas operativas del sector corporativo y público, impulsando activamente el progreso económico y la sustentabilidad del país.</p>
             </div>
-            <div class="division-card">
-                <div class="division-icon">⚡</div>
-                <h3>Movilidad Sostenible</h3>
-                <p>Impulsando la micro-movilidad mediante soluciones de transporte inteligentes, ecológicas y altamente eficientes para entornos industriales y urbanos.</p>
-            </div>
-            <div class="division-card">
-                <div class="division-icon">🏆</div>
-                <h3>Promoción Deportiva</h3>
-                <p>Desarrollo de estrategias comerciales para el posicionamiento y difusión de marcas en plataformas deportivas masivas y eventos globales.</p>
+            <div class="mv-card">
+                <h3>Nuestra Visión</h3>
+                <p>Ser el consorcio empresarial de referencia en México para la transformación digital e infraestructura urbana, distinguidos por nuestra solidez operativa y nuestra filosofía de colaboración multisectorial "Juntos podemos mejor".</p>
             </div>
         </div>
     </section>
 
-    <!-- Alianzas -->
-    <section id="alianzas" class="partnerships">
-        <div class="partnerships-content">
-            <h2 class="section-title">Alianzas Estratégicas</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px auto; color: #ddd;">
-                Trabajamos de la mano con líderes en tecnología de seguridad nacional e infraestructura para garantizar proyectos confiables y de gran envergadura.
-            </p>
-            <div class="partners-list">
-                <div class="partner-item">TICSA</div>
-                <div class="partner-item">BIMEX</div>
-                <div class="partner-item">PX SPORTS</div>
+    <!-- Divisiones Comerciales -->
+    <section id="servicios" class="services-section">
+        <div class="section-title-container">
+            <h2 class="section-title">Nuestras Divisiones</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="services-grid">
+            <!-- División 1 -->
+            <div class="service-card">
+                <h4>Tecnología y Seguridad</h4>
+                <ul class="service-list">
+                    <li>Despliegue de software de monitoreo avanzado e infraestructura de seguridad pública.</li>
+                    <li>Sistemas centralizados para la protección de recintos comerciales y áreas metropolitanas.</li>
+                    <li>Integración de plataformas analíticas corporativas y automatización operativa.</li>
+                </ul>
+            </div>
+            <!-- División 2 -->
+            <div class="service-card">
+                <h4>Movilidad Sostenible</h4>
+                <ul class="service-list">
+                    <li>Distribución y equipamiento comercial de flotillas y micro-mobility.</li>
+                    <li>Soluciones logísticas de transporte e integración de vehículos de tránsito ecológicos.</li>
+                    <li>Desarrollo de planes integrales de conectividad urbana sustentable para empresas y municipios.</li>
+                </ul>
+            </div>
+            <!-- División 3 -->
+            <div class="service-card">
+                <h4>Promoción Deportiva</h4>
+                <ul class="service-list">
+                    <li>Comercialización y alianzas de transmisiones de deportes de acción y eventos masivos.</li>
+                    <li>Plataformas especializadas en difusión de eventos multimedia e identidad de marca.</li>
+                    <li>Estrategias de vinculación de patrocinios y relaciones comerciales a gran escala.</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <!-- Contacto -->
     <section id="contacto">
-        <h2 class="section-title">Contacto</h2>
+        <div class="section-title-container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="deco-line"></div>
+        </div>
         <div class="contact-container">
-            <form action="#" method="POST" onsubmit="alert('¡Gracias por su mensaje! Nos pondremos en contacto a la brevedad.'); return false;">
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Gracias! Su mensaje corporativo ha sido enviado con éxito.');">
                 <div class="form-group">
-                    <label for="name">Nombre Completo</label>
-                    <input type="text" id="name" name="name" required placeholder="Ej. Juan Pérez">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
                 </div>
                 <div class="form-group">
-                    <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" required placeholder="ejemplo@grupojelsa.com">
+                    <label for="empresa">Empresa / Institución</label>
+                    <input type="text" id="empresa" placeholder="Nombre de su organización" required>
                 </div>
                 <div class="form-group">
-                    <label for="message">Mensaje / Requerimiento</label>
-                    <textarea id="message" name="message" required placeholder="Describa brevemente su consulta..."></textarea>
+                    <label for="email">Correo Electrónico Corporativo</label>
+                    <input type="email" id="email" placeholder="correo@organizacion.com" required>
                 </div>
-                <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                <div class="form-group">
+                    <label for="sector">División de Interés</label>
+                    <select id="sector" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="tecnologia">Tecnología y Seguridad Pública</option>
+                        <option value="movilidad">Movilidad Sostenible (Bimex)</option>
+                        <option value="deportes">Promoción Deportiva (PX Sports)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Detalles del Requerimiento</label>
+                    <textarea id="mensaje" rows="5" placeholder="¿Cómo podemos colaborar con su proyecto institucional?" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Mensaje Corporativo</button>
             </form>
         </div>
     </section>
 
+    <!-- Filosofía Corporativa -->
+    <div class="philosophy-banner">
+        <h2>“Juntos podemos mejor. Juntos formamos México. Juntos, por México”.</h2>
+        <p>Filosofía Corporativa — Grupo JELSA México</p>
+    </div>
+
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Grupo JELSA. Todos los derechos reservados.</p>
+        &copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.
     </footer>
 
 </body>
