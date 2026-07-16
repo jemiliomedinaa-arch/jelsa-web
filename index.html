@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Jelsa México | Consultoría Estratégica</title>
+    <!-- Tipografías elegantes para recrear el logotipo y la web corporativa -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --verde-mex: #00843D;
+            --rojo-mex: #C8102E;
+            --negro-titulo: #000000;
+            --gris-texto: #333333;
+            --gris-fondo: #f9f9f9;
+            --blanco: #ffffff;
+            --transicion: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--gris-texto);
+            background-color: var(--blanco);
+            scroll-behavior: smooth;
+        }
+
+        /* --- Header / Barra de Navegación --- */
+        header {
+            background: var(--blanco);
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Logotipo Maquetado en Código */
+        .logo-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            color: var(--negro-titulo);
+            padding: 5px 0;
+        }
+
+        .logo-initials {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 2px;
+        }
+
+        .logo-main-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo-sub-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        .logo-lines {
+            width: 100%;
+            height: 4px;
+            margin-top: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5px;
+        }
+
+        .line-green {
+            height: 1.5px;
+            background-color: var(--verde-mex);
+            width: 100%;
+        }
+
+        .line-red {
+            height: 1.5px;
+            background-color: var(--rojo-mex);
+            width: 100%;
+        }
+
+        /* Menú de Navegación */
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--gris-texto);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transicion);
+        }
+
+        nav ul li a:hover {
+            color: var(--verde-mex);
+        }
+
+        .btn-contacto-nav {
+            background-color: var(--rojo-mex);
+            color: var(--blanco) !important;
+            padding: 10px 20px;
+            border-radius: 3px;
+        }
+
+        .btn-contacto-nav:hover {
+            background-color: var(--verde-mex);
+        }
+
+        /* --- Hero Banner (Sección Principal) --- */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--blanco);
+            padding: 0 10%;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            font-weight: 300;
+        }
+
+        .btn-hero {
+            background-color: var(--rojo-mex);
+            color: var(--blanco);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: var(--transicion);
+        }
+
+        .btn-hero:hover {
+            background-color: var(--verde-mex);
+        }
+
+        /* --- Estilos de Secciones --- */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title-container {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            color: var(--negro-titulo);
+            margin-bottom: 10px;
+        }
+
+        .deco-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--verde-mex) 50%, var(--rojo-mex) 50%);
+            margin: 0 auto;
+        }
+
+        /* --- Quiénes Somos / Misión / Visión --- */
+        .intro-text {
+            text-align: center;
+            font-size: 1.15rem;
+            max-width: 850px;
+            margin: 0 auto 50px;
+            color: var(--gris-texto);
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .mv-card {
+            background-color: var(--gris-fondo);
+            padding: 40px;
+            border-radius: 4px;
+            border-top: 4px solid var(--verde-mex);
+            transition: var(--transicion);
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        .mv-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--negro-titulo);
+            margin-bottom: 15px;
+        }
+
+        /* --- Servicios --- */
+        .services-section {
+            background-color: var(--gris-fondo);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--blanco);
+            padding: 35px;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border-bottom: 3px solid transparent;
+            transition: var(--transicion);
+        }
+
+        .service-card:hover {
+            border-bottom: 3px solid var(--rojo-mex);
+            transform: translateY(-3px);
+        }
+
+        .service-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--verde-mex);
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-list li::before {
+            content: '•';
+            color: var(--rojo-mex);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* --- Contacto --- */
+        .contact-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--blanco);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transicion);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--verde-mex);
+            outline: none;
+        }
+
+        .btn-submit {
+            background-color: var(--verde-mex);
+            color: var(--blanco);
+            border: none;
+            width: 100%;
+            padding: 15px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: var(--transicion);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--negro-titulo);
+        }
+
+        /* --- Filosofía --- */
+        .philosophy-banner {
+            background-color: var(--negro-titulo);
+            color: var(--blanco);
+            text-align: center;
+            padding: 80px 10%;
+        }
+
+        .philosophy-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .philosophy-banner p {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #0d0d0d;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.8rem;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        /* --- Adaptabilidad Móvil --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul li {
+                margin-left: 0;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Menú -->
+    <header>
+        <a href="#inicio" class="logo-box">
+            <span class="logo-initials">GJ</span>
+            <span class="logo-main-text">Grupo Jelsa</span>
+            <span class="logo-sub-text">Mexico</span>
+            <div class="logo-lines">
+                <div class="line-green"></div>
+                <div class="line-red"></div>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Quiénes Somos</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto" class="btn-contacto-nav">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>GRUPO JELSA MÉXICO</h1>
+            <p>Brindamos soluciones éticas, reales e innovadoras a través del acompañamiento y asesoría estratégica de excelencia.</p>
+            <button class="btn-hero" onclick="location.href='#contacto'">Solicitar Asesoría</button>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos / Misión / Visión -->
+    <section id="nosotros">
+        <div class="section-title-container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <div class="deco-line"></div>
+        </div>
+        <p class="intro-text">
+            Somos un equipo de profesionales expertos en brindar acompañamiento, asesoría y servicios de consultoría integral a las autoridades y empresas del sector público y privado.
+        </p>
+
+        <div class="mv-grid">
+            <div class="mv-card">
+                <h3>Nuestra Misión</h3>
+                <p>Crear, desarrollar e implementar servicios de consultoría y asesoramiento estratégicos para los sectores públicos y privados que aporten soluciones éticas de calidad acordes a las necesidades de nuestros clientes y la sociedad mexicana, con el objetivo de impulsar el desarrollo de México.</p>
+            </div>
+            <div class="mv-card">
+                <h3>Nuestra Visión</h3>
+                <p>Ser un corporativo referente en la transformación del país a través de nuestra filosofía de “Juntos podemos mejor”, sustentada en la inclusión, el respeto y la colaboración desde diversos puntos de enfoque y expertisse generando ideas y estrategias reales, funcionales e innovadoras.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="services-section">
+        <div class="section-title-container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h4>Sector Público</h4>
+                <ul class="service-list">
+                    <li>Asistencia técnica y acompañamiento a dependencias públicas.</li>
+                    <li>Evaluación y diseño metodológico de políticas públicas.</li>
+                    <li>Procesos de mejora regulatoria y de control interno.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h4>Sector Privado</h4>
+                <ul class="service-list">
+                    <li>Consultoría de negocios y optimización de flujos de trabajo.</li>
+                    <li>Asesoramiento normativo y esquemas éticos empresariales.</li>
+                    <li>Estructuración de convenios y planes de desarrollo corporativo.</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <h4>Alianzas Estratégicas</h4>
+                <ul class="service-list">
+                    <li>Vinculación y desarrollo de proyectos público-privados.</li>
+                    <li>Análisis metodológicos y diagnósticos situacionales integrales.</li>
+                    <li>Despliegue de soluciones innovadoras y sustentables.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="section-title-container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="contact-container">
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Gracias! Su solicitud de asesoría ha sido enviada con éxito.');">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
+                </div>
+                <div class="form-group">
+                    <label for="empresa">Empresa / Institución pública</label>
+                    <input type="text" id="empresa" placeholder="Nombre de su organización" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico Corporativo</label>
+                    <input type="email" id="email" placeholder="correo@organizacion.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="sector">Sector de Interés</label>
+                    <select id="sector" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="publico">Sector Público</option>
+                        <option value="privado">Sector Privado</option>
+                        <option value="alianza">Alianzas y Proyectos Especiales</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Detalles del Requerimiento</label>
+                    <textarea id="mensaje" rows="5" placeholder="¿Cómo podemos colaborar con usted?" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Solicitud de Consultoría</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Filosofía Corporativa -->
+    <div class="philosophy-banner">
+        <h2>“Juntos podemos mejor. Juntos formamos México. Juntos, por México”.</h2>
+        <p>Filosofía Corporativa — Grupo Jelsa México</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.
+    </footer>
+
+</body>
+</html>
