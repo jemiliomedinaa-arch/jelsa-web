@@ -389,4 +389,255 @@
         .philosophy-banner p {
             font-size: 0.8rem;
             letter-spacing: 3px;
-            text
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        footer {
+            background-color: #0d0d0d;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.8rem;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .brand-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .brand-logo-gj {
+                height: 65px;
+            }
+
+            .brand-logo-text {
+                height: 48px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul li {
+                margin-left: 0;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Menú con Logos de tamaño optimizado -->
+    <header>
+        <a href="#inicio" class="brand-container">
+            <img src="logo-gj.jpg" alt="Monograma GJ" class="brand-logo-gj" onerror="this.onerror=null; this.src='logo-gj.png';">
+            <img src="logo-texto.jpg" alt="Grupo JELSA México" class="brand-logo-text" onerror="this.onerror=null; this.src='logo-texto.png';">
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Quiénes Somos</a></li>
+                <li><a href="#divisiones">Divisiones</a></li>
+                <li><a href="#sectores">Sectores</a></li>
+                <li><a href="#acronimo">Identidad</a></li>
+                <li><a href="#contacto" class="btn-contacto-nav">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>GRUPO JELSA MÉXICO</h1>
+            <p>Corporativo de Soluciones Integrales — Juntos por México</p>
+            <button class="btn-hero" onclick="location.href='#contacto'">Solicitar Información</button>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos -->
+    <section id="nosotros">
+        <div class="section-title-container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <div class="deco-line"></div>
+        </div>
+        <p class="intro-text">
+            Grupo Jelsa es un corporativo multidisciplinario integrado por especialistas de diversos sectores estratégicos. Nuestra estructura permite ofrecer soluciones integrales mediante divisiones dirigidas por profesionales con experiencia en sus respectivas áreas, coordinando capacidades jurídicas, institucionales, empresariales, tecnológicas, operativas y de gestión para atender proyectos públicos y privados.
+        </p>
+
+        <div class="mv-grid" style="margin-top: 50px;">
+            <div class="mv-card">
+                <h3>Misión</h3>
+                <p>Ser el Corporativo líder en México, entregando soluciones integrales de calidad que impulsen el desarrollo operativo y estratégico de los sectores empresarial, público, social y académico, proveyendo productos de calidad, servicios eficientes y asesoría especializada de excelencia. Actuamos como un puente estratégico que conecta el mercado nacional con el sector externo, habilitando la innovación y la competitividad global en cada proyecto que respaldamos, mediante un servicio profesional, ético y orientado a resultados.</p>
+            </div>
+            <div class="mv-card">
+                <h3>Visión</h3>
+                <p>Ser el corporativo referente en México en soluciones integrales, reconocido por nuestra innovación, sustentabilidad y compromiso con el progreso del país, consolidándonos como aliado estratégico del sector público y privado hacia el 2030.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divisiones Estratégicas -->
+    <section id="divisiones" style="background-color: var(--gris-fondo);">
+        <div class="section-title-container">
+            <h2 class="section-title">Divisiones Estratégicas</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="divisions-grid">
+            <div class="division-card">
+                <h4>Movilidad y Energía Sostenible</h4>
+                <p>Transporte y soluciones de energía limpia orientadas al desarrollo sustentable.</p>
+            </div>
+            <div class="division-card">
+                <h4>Seguridad, Inteligencia y Defensa Táctica</h4>
+                <p>Inteligencia operativa, gestión de riesgos y esquemas de seguridad táctica especializada.</p>
+            </div>
+            <div class="division-card">
+                <h4>Infraestructura, Tecnología y Espacios Corporativos</h4>
+                <p>Desarrollo y habilitación de infraestructura física integral y arquitectura tecnológica corporativa.</p>
+            </div>
+            <div class="division-card">
+                <h4>Comercial, Abasto, Salud y Alimentos</h4>
+                <p>Soluciones de salud, bienestar, insumos de higiene hospitalaria, alimentos y suministro médico general.</p>
+            </div>
+            <div class="division-card">
+                <h4>Consultoría, Servicios Legales y Financieros</h4>
+                <p>Asesoría jurídica corporativa, diseño de estrategia de gobierno y estructuración financiera integral.</p>
+            </div>
+            <div class="division-card">
+                <h4>Comunicación, Publicidad, Medios y Eventos Masivos</h4>
+                <p>Estrategias integrales de difusión en principales espacios publicitarios, transporte público y privado, aeropuertos y sistemas de transporte masivo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sectores de Impacto -->
+    <section id="sectores" class="sectores-container">
+        <div class="section-title-container">
+            <h2 class="section-title">Sectores de Impacto</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="sectores-grid">
+            <div class="sector-box">Sector Público</div>
+            <div class="sector-box">Sector Empresarial</div>
+            <div class="sector-box">Sector Académico</div>
+            <div class="sector-box">Sector Social</div>
+            <div class="sector-box">Sector Externo</div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section id="valores">
+        <div class="section-title-container">
+            <h2 class="section-title">Nuestros Valores</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="valores-grid">
+            <div class="valor-card">Honestidad y Transparencia</div>
+            <div class="valor-card">Lealtad y Compromiso</div>
+            <div class="valor-card">Profesionalismo</div>
+            <div class="valor-card">Trabajo en Equipo</div>
+            <div class="valor-card">Confianza e Integridad</div>
+            <div class="valor-card">Resolución de Problemas</div>
+            <div class="valor-card">Innovación y Formación Continua</div>
+            <div class="valor-card">Eficiencia y Pragmatismo</div>
+            <div class="valor-card">Cultura Organizacional</div>
+        </div>
+    </section>
+
+    <!-- Acrónimo Institucional -->
+    <section id="acronimo" class="acronimo-section">
+        <div class="section-title-container">
+            <h2 class="section-title" style="color: var(--blanco);">Acrónimo Institucional</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="acronimo-grid">
+            <div class="acronimo-card">
+                <div class="acronimo-letra">J</div>
+                <p>Justicia y Juridicidad</p>
+            </div>
+            <div class="acronimo-card">
+                <div class="acronimo-letra">E</div>
+                <p>Eficiencia y Estrategia</p>
+            </div>
+            <div class="acronimo-card">
+                <div class="acronimo-letra">L</div>
+                <p>Lealtad y Liderazgo</p>
+            </div>
+            <div class="acronimo-card">
+                <div class="acronimo-letra">S</div>
+                <p>Seguridad y Servicio</p>
+            </div>
+            <div class="acronimo-card">
+                <div class="acronimo-letra">A</div>
+                <p>Abasto y Avance por México</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="section-title-container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="contact-container">
+            <form onsubmit="event.preventDefault(); alert('¡Gracias por su mensaje! Su requerimiento ha sido enviado con éxito a presidencia@grupojelsa.com.'); this.reset();">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
+                </div>
+                <div class="form-group">
+                    <label for="empresa">Empresa / Institución</label>
+                    <input type="text" id="empresa" placeholder="Nombre de su organización" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico Corporativo</label>
+                    <input type="email" id="email" placeholder="correo@organizacion.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="sector">División / Sector de Interés</label>
+                    <select id="sector" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="movilidad">1. Movilidad y Energía Sostenible</option>
+                        <option value="seguridad">2. Seguridad, Inteligencia y Defensa Táctica</option>
+                        <option value="infraestructura">3. Infraestructura, Tecnología y Espacios Corporativos</option>
+                        <option value="comercial">4. Comercial, Abasto, Salud y Alimentos</option>
+                        <option value="consultoria">5. Consultoría, Servicios Legales y Financieros</option>
+                        <option value="comunicacion">6. Comunicación, Publicidad, Medios y Eventos Masivos</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Detalles del Requerimiento</label>
+                    <textarea id="mensaje" rows="5" placeholder="¿Cómo podemos colaborar con su proyecto institucional?" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Mensaje Corporativo</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Filosofía Institucional -->
+    <div class="philosophy-banner">
+        <h2>"Juntos podemos mejor. Juntos formamos México".</h2>
+        <p>Filosofía Institucional — Grupo JELSA México</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contacto: presidencia@grupojelsa.com | grupojelsa.com</p>
+        <p style="margin-top: 10px;">&copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
