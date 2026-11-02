@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo JELSA | Corporativo de Soluciones Integrales</title>
-    <!-- Icono (Favicon) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.ico">
     <!-- Tipografías corporativas -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --verde-mex: #00843D;
@@ -17,7 +17,7 @@
             --gris-texto: #333333;
             --gris-fondo: #f9f9f9;
             --blanco: #ffffff;
-            --transicion: all 0.3s ease;
+            --transicion: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
         * {
@@ -32,12 +32,13 @@
             color: var(--gris-texto);
             background-color: var(--blanco);
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        /* --- Header / Menú con fusión perfecta sin cuadros blancos --- */
+        /* --- Header / Menú Dinámico e Inteligente --- */
         header {
             background: var(--blanco);
-            padding: 15px 5%;
+            padding: 18px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -45,6 +46,12 @@
             top: 0;
             z-index: 1000;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: var(--transicion);
+        }
+
+        header.shrunk {
+            padding: 10px 5%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         .brand-container {
@@ -58,19 +65,22 @@
             height: 72px;
             width: auto;
             object-fit: contain;
-            mix-blend-mode: darken; /* Elimina por completo los tonos blancos y de papel del fondo */
+            mix-blend-mode: darken;
             filter: contrast(1.1);
-            background-color: transparent;
+            transition: var(--transicion);
         }
 
         .brand-logo-text {
             height: 52px;
             width: auto;
             object-fit: contain;
-            mix-blend-mode: darken; /* Elimina por completo los tonos blancos y de papel del fondo */
+            mix-blend-mode: darken;
             filter: contrast(1.1);
-            background-color: transparent;
+            transition: var(--transicion);
         }
+
+        header.shrunk .brand-logo-gj { height: 58px; }
+        header.shrunk .brand-logo-text { height: 42px; }
 
         nav ul {
             display: flex;
@@ -89,31 +99,55 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            padding: 5px 0;
+            position: relative;
             transition: var(--transicion);
         }
 
-        nav ul li a:hover {
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--verde-mex);
+            transition: var(--transicion);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        nav ul li a.active {
             color: var(--verde-mex);
         }
 
         .btn-contacto-nav {
             background-color: var(--rojo-mex);
             color: var(--blanco) !important;
-            padding: 10px 20px;
-            border-radius: 3px;
+            padding: 10px 22px !important;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(200, 16, 46, 0.25);
         }
+
+        .btn-contacto-nav::after { display: none !important; }
 
         .btn-contacto-nav:hover {
             background-color: var(--verde-mex);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 132, 61, 0.3);
         }
 
-        /* --- Hero Banner --- */
+        /* --- Hero Banner Dinámico --- */
         .hero {
-            height: 65vh;
-            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.6)), 
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), 
                         url('angel-jelsa.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed; /* Efecto Parallax Sutil */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -124,41 +158,59 @@
 
         .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.8rem);
             font-weight: 700;
             letter-spacing: 2px;
             margin-bottom: 15px;
+            animation: fadeInDown 1s ease-out;
         }
 
         .hero-content p {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             max-width: 800px;
-            margin: 0 auto 25px;
+            margin: 0 auto 30px;
             font-weight: 300;
             letter-spacing: 0.5px;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
         }
 
         .btn-hero {
             background-color: var(--rojo-mex);
             color: var(--blanco);
-            padding: 12px 30px;
+            padding: 14px 34px;
             border: none;
-            border-radius: 3px;
+            border-radius: 4px;
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.85rem;
             cursor: pointer;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             transition: var(--transicion);
+            box-shadow: 0 4px 15px rgba(200, 16, 46, 0.3);
+            animation: fadeInUp 1s ease-out 0.6s backwards;
         }
 
         .btn-hero:hover {
             background-color: var(--verde-mex);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 132, 61, 0.4);
         }
 
-        /* --- Secciones --- */
+        /* --- Animaciones Reveal Scroll --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Secciones Generales --- */
         section {
-            padding: 80px 10%;
+            padding: 90px 10%;
         }
 
         .section-title-container {
@@ -168,13 +220,13 @@
 
         .section-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.3rem;
+            font-size: 2.4rem;
             color: var(--negro-titulo);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .deco-line {
-            width: 100px;
+            width: 90px;
             height: 3px;
             background: linear-gradient(to right, var(--verde-mex) 50%, var(--rojo-mex) 50%);
             margin: 0 auto;
@@ -189,6 +241,7 @@
             line-height: 1.8;
         }
 
+        /* --- Misión / Visión --- */
         .mv-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -197,25 +250,61 @@
 
         .mv-card {
             background-color: var(--gris-fondo);
-            padding: 40px;
-            border-radius: 4px;
+            padding: 45px 35px;
+            border-radius: 8px;
             border-top: 4px solid var(--verde-mex);
             transition: var(--transicion);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
         }
 
         .mv-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-top-color: var(--rojo-mex);
         }
 
         .mv-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--negro-titulo);
             margin-bottom: 15px;
         }
 
-        /* --- Divisiones --- */
+        /* --- Contadores Dinámicos (KPIs Corporativos) --- */
+        .kpi-section {
+            background-color: var(--negro-titulo);
+            color: var(--blanco);
+            padding: 60px 10%;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .kpi-card {
+            padding: 20px;
+        }
+
+        .kpi-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--dorado-jelsa);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .kpi-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* --- Divisiones Estratégicas Interactivas --- */
         .divisions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -225,14 +314,23 @@
         .division-card {
             background: var(--blanco);
             padding: 35px;
-            border-radius: 6px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            border-bottom: 3px solid var(--verde-mex);
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border-left: 4px solid var(--verde-mex);
+            transition: var(--transicion);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .division-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            border-left-color: var(--rojo-mex);
         }
 
         .division-card h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             color: var(--negro-titulo);
             margin-bottom: 12px;
         }
@@ -255,31 +353,45 @@
 
         .sector-box {
             background: var(--blanco);
-            padding: 25px 20px;
+            padding: 30px 20px;
             text-align: center;
-            border-radius: 6px;
-            border-left: 4px solid var(--verde-mex);
+            border-radius: 8px;
             font-weight: 600;
             color: var(--negro-titulo);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             font-size: 1.05rem;
+            border-top: 3px solid transparent;
+            transition: var(--transicion);
+        }
+
+        .sector-box:hover {
+            border-top-color: var(--verde-mex);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
         }
 
         /* --- Valores --- */
         .valores-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
 
         .valor-card {
             background: var(--gris-fondo);
-            padding: 20px 25px;
+            padding: 22px 25px;
             border-left: 4px solid var(--verde-mex);
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: 600;
             color: var(--gris-texto);
             font-size: 0.95rem;
+            transition: var(--transicion);
+        }
+
+        .valor-card:hover {
+            background: var(--blanco);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            transform: translateX(4px);
         }
 
         /* --- Acrónimo --- */
@@ -296,20 +408,27 @@
         }
 
         .acronimo-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 25px 15px;
-            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 30px 20px;
+            border-radius: 8px;
             text-align: center;
             border-top: 3px solid var(--verde-mex);
+            transition: var(--transicion);
+        }
+
+        .acronimo-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+            border-top-color: var(--dorado-jelsa);
         }
 
         .acronimo-letra {
             font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
-            color: var(--verde-mex);
+            color: var(--dorado-jelsa);
             line-height: 1;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .acronimo-card p {
@@ -317,18 +436,18 @@
             font-weight: 500;
         }
 
-        /* --- Contacto --- */
+        /* --- Formulario Interactivo --- */
         .contact-container {
-            max-width: 650px;
+            max-width: 680px;
             margin: 0 auto;
             background: var(--blanco);
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-radius: 8px;
+            padding: 45px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-radius: 10px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         .form-group label {
@@ -342,16 +461,19 @@
 
         input, select, textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 14px 18px;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
             font-family: inherit;
             font-size: 0.95rem;
             transition: var(--transicion);
+            background-color: #fafafa;
         }
 
         input:focus, select:focus, textarea:focus {
             border-color: var(--verde-mex);
+            background-color: var(--blanco);
+            box-shadow: 0 0 0 4px rgba(0, 132, 61, 0.1);
             outline: none;
         }
 
@@ -360,18 +482,35 @@
             color: var(--blanco);
             border: none;
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             font-size: 0.95rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 6px;
             transition: var(--transicion);
+            box-shadow: 0 4px 15px rgba(0, 132, 61, 0.25);
         }
 
         .btn-submit:hover {
             background-color: var(--negro-titulo);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Mensaje de confirmación dinámico dentro de la página */
+        .success-message {
+            display: none;
+            background-color: #e8f5e9;
+            color: #1b5e20;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 5px solid var(--verde-mex);
+            text-align: center;
+            font-weight: 600;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease;
         }
 
         /* --- Filosofía Institucional --- */
@@ -412,6 +551,22 @@
             border-top: 1px solid #1a1a1a;
         }
 
+        /* Keyframes */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         @media (max-width: 900px) {
             header {
                 flex-direction: column;
@@ -424,44 +579,32 @@
                 text-align: center;
             }
 
-            .brand-logo-gj {
-                height: 60px;
-            }
-
-            .brand-logo-text {
-                height: 44px;
-            }
-
             nav ul {
                 flex-direction: column;
                 gap: 12px;
             }
 
-            nav ul li {
-                margin-left: 0;
-            }
+            nav ul li { margin-left: 0; }
 
-            section {
-                padding: 60px 5%;
-            }
+            section { padding: 60px 5%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header / Menú con fusión perfecta -->
-    <header>
+    <!-- Header / Menú Inteligente -->
+    <header id="navbar">
         <a href="#inicio" class="brand-container">
             <img src="logo-gj.jpg" alt="Monograma GJ" class="brand-logo-gj" onerror="this.onerror=null; this.src='logo-gj.png';">
             <img src="logo-texto.jpg" alt="Grupo JELSA México" class="brand-logo-text" onerror="this.onerror=null; this.src='logo-texto.png';">
         </a>
         <nav>
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Quiénes Somos</a></li>
-                <li><a href="#divisiones">Divisiones</a></li>
-                <li><a href="#sectores">Sectores</a></li>
-                <li><a href="#acronimo">Identidad</a></li>
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#nosotros" class="nav-link">Quiénes Somos</a></li>
+                <li><a href="#divisiones" class="nav-link">Divisiones</a></li>
+                <li><a href="#sectores" class="nav-link">Sectores</a></li>
+                <li><a href="#acronimo" class="nav-link">Identidad</a></li>
                 <li><a href="#contacto" class="btn-contacto-nav">Contacto</a></li>
             </ul>
         </nav>
@@ -477,7 +620,7 @@
     </section>
 
     <!-- Quiénes Somos -->
-    <section id="nosotros">
+    <section id="nosotros" class="reveal">
         <div class="section-title-container">
             <h2 class="section-title">Quiénes Somos</h2>
             <div class="deco-line"></div>
@@ -487,123 +630,145 @@
         </p>
 
         <div class="mv-grid" style="margin-top: 50px;">
-            <div class="mv-card">
+            <div class="mv-card reveal">
                 <h3>Misión</h3>
                 <p>Ser el Corporativo líder en México, entregando soluciones integrales de calidad que impulsen el desarrollo operativo y estratégico de los sectores empresarial, público, social y académico, proveyendo productos de calidad, servicios eficientes y asesoría especializada de excelencia. Actuamos como un puente estratégico que conecta el mercado nacional con el sector externo, habilitando la innovación y la competitividad global en cada proyecto que respaldamos, mediante un servicio profesional, ético y orientado a resultados.</p>
             </div>
-            <div class="mv-card">
+            <div class="mv-card reveal">
                 <h3>Visión</h3>
                 <p>Ser el corporativo referente en México en soluciones integrales, reconocido por nuestra innovación, sustentabilidad y compromiso con el progreso del país, consolidándonos como aliado estratégico del sector público y privado hacia el 2030.</p>
             </div>
         </div>
     </section>
 
-    <!-- Divisiones Estratégicas -->
-    <section id="divisiones" style="background-color: var(--gris-fondo);">
+    <!-- KPIs Contadores Dinámicos -->
+    <div class="kpi-section reveal">
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-number" data-target="6">0</div>
+                <div class="kpi-label">Divisiones Estratégicas</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-number" data-target="5">0</div>
+                <div class="kpi-label">Sectores de Impacto</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-number" data-target="9">0</div>
+                <div class="kpi-label">Valores Corporativos</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-number" data-target="2030">0</div>
+                <div class="kpi-label">Visión Estratégica</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Divisiones Estratégicas Interactivas -->
+    <section id="divisiones" style="background-color: var(--gris-fondo);" class="reveal">
         <div class="section-title-container">
             <h2 class="section-title">Divisiones Estratégicas</h2>
             <div class="deco-line"></div>
         </div>
         <div class="divisions-grid">
-            <div class="division-card">
-                <h4>Movilidad y Energía Sostenible</h4>
+            <div class="division-card reveal">
+                <h4>1. Movilidad y Energía Sostenible</h4>
                 <p>Transporte y soluciones de energía limpia orientadas al desarrollo sustentable.</p>
             </div>
-            <div class="division-card">
-                <h4>Seguridad, Inteligencia y Defensa Táctica</h4>
+            <div class="division-card reveal">
+                <h4>2. Seguridad, Inteligencia y Defensa Táctica</h4>
                 <p>Inteligencia operativa, gestión de riesgos y esquemas de seguridad táctica especializada.</p>
             </div>
-            <div class="division-card">
-                <h4>Infraestructura, Tecnología y Espacios Corporativos</h4>
+            <div class="division-card reveal">
+                <h4>3. Infraestructura, Tecnología y Espacios Corporativos</h4>
                 <p>Desarrollo y habilitación de infraestructura física integral y arquitectura tecnológica corporativa.</p>
             </div>
-            <div class="division-card">
-                <h4>Comercial, Abasto, Salud y Alimentos</h4>
+            <div class="division-card reveal">
+                <h4>4. Comercial, Abasto, Salud y Alimentos</h4>
                 <p>Soluciones de salud, bienestar, insumos de higiene hospitalaria, alimentos y suministro médico general.</p>
             </div>
-            <div class="division-card">
-                <h4>Consultoría, Servicios Legales y Financieros</h4>
+            <div class="division-card reveal">
+                <h4>5. Consultoría, Servicios Legales y Financieros</h4>
                 <p>Asesoría jurídica corporativa, diseño de estrategia de gobierno y estructuración financiera integral.</p>
             </div>
-            <div class="division-card">
-                <h4>Comunicación, Publicidad, Medios y Eventos Masivos</h4>
+            <div class="division-card reveal">
+                <h4>6. Comunicación, Publicidad, Medios y Eventos Masivos</h4>
                 <p>Estrategias integrales de difusión en principales espacios publicitarios, transporte público y privado, aeropuertos y sistemas de transporte masivo.</p>
             </div>
         </div>
     </section>
 
     <!-- Sectores de Impacto -->
-    <section id="sectores" class="sectores-container">
+    <section id="sectores" class="sectores-container reveal">
         <div class="section-title-container">
             <h2 class="section-title">Sectores de Impacto</h2>
             <div class="deco-line"></div>
         </div>
         <div class="sectores-grid">
-            <div class="sector-box">Sector Público</div>
-            <div class="sector-box">Sector Empresarial</div>
-            <div class="sector-box">Sector Académico</div>
-            <div class="sector-box">Sector Social</div>
-            <div class="sector-box">Sector Externo</div>
+            <div class="sector-box reveal">Sector Público</div>
+            <div class="sector-box reveal">Sector Empresarial</div>
+            <div class="sector-box reveal">Sector Académico</div>
+            <div class="sector-box reveal">Sector Social</div>
+            <div class="sector-box reveal">Sector Externo</div>
         </div>
     </section>
 
     <!-- Valores -->
-    <section id="valores">
+    <section id="valores" class="reveal">
         <div class="section-title-container">
             <h2 class="section-title">Nuestros Valores</h2>
             <div class="deco-line"></div>
         </div>
         <div class="valores-grid">
-            <div class="valor-card">Honestidad y Transparencia</div>
-            <div class="valor-card">Lealtad y Compromiso</div>
-            <div class="valor-card">Profesionalismo</div>
-            <div class="valor-card">Trabajo en Equipo</div>
-            <div class="valor-card">Confianza e Integridad</div>
-            <div class="valor-card">Resolución de Problemas</div>
-            <div class="valor-card">Innovación y Formación Continua</div>
-            <div class="valor-card">Eficiencia y Pragmatismo</div>
-            <div class="valor-card">Cultura Organizacional</div>
+            <div class="valor-card reveal">Honestidad y Transparencia</div>
+            <div class="valor-card reveal">Lealtad y Compromiso</div>
+            <div class="valor-card reveal">Profesionalismo</div>
+            <div class="valor-card reveal">Trabajo en Equipo</div>
+            <div class="valor-card reveal">Confianza e Integridad</div>
+            <div class="valor-card reveal">Resolución de Problemas</div>
+            <div class="valor-card reveal">Innovación y Formación Continua</div>
+            <div class="valor-card reveal">Eficiencia y Pragmatismo</div>
+            <div class="valor-card reveal">Cultura Organizacional</div>
         </div>
     </section>
 
     <!-- Acrónimo Institucional -->
-    <section id="acronimo" class="acronimo-section">
+    <section id="acronimo" class="acronimo-section reveal">
         <div class="section-title-container">
             <h2 class="section-title" style="color: var(--blanco);">Acrónimo Institucional</h2>
             <div class="deco-line"></div>
         </div>
         <div class="acronimo-grid">
-            <div class="acronimo-card">
+            <div class="acronimo-card reveal">
                 <div class="acronimo-letra">J</div>
                 <p>Justicia y Juridicidad</p>
             </div>
-            <div class="acronimo-card">
+            <div class="acronimo-card reveal">
                 <div class="acronimo-letra">E</div>
                 <p>Eficiencia y Estrategia</p>
             </div>
-            <div class="acronimo-card">
+            <div class="acronimo-card reveal">
                 <div class="acronimo-letra">L</div>
                 <p>Lealtad y Liderazgo</p>
             </div>
-            <div class="acronimo-card">
+            <div class="acronimo-card reveal">
                 <div class="acronimo-letra">S</div>
                 <p>Seguridad y Servicio</p>
             </div>
-            <div class="acronimo-card">
+            <div class="acronimo-card reveal">
                 <div class="acronimo-letra">A</div>
                 <p>Abasto y Avance por México</p>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto">
+    <!-- Contacto con Respuesta Dinámica -->
+    <section id="contacto" class="reveal">
         <div class="section-title-container">
             <h2 class="section-title">Contacto</h2>
             <div class="deco-line"></div>
         </div>
         <div class="contact-container">
-            <form onsubmit="event.preventDefault(); alert('¡Gracias por su mensaje! Su requerimiento ha sido enviado con éxito a presidencia@grupojelsa.com.'); this.reset();">
+            <form id="contactForm">
                 <div class="form-group">
                     <label for="nombre">Nombre Completo</label>
                     <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
@@ -634,11 +799,15 @@
                 </div>
                 <button type="submit" class="btn-submit">Enviar Mensaje Corporativo</button>
             </form>
+
+            <div id="successMessage" class="success-message">
+                ✓ Su requerimiento ha sido registrado con éxito. Un representante corporativo se pondrá en contacto a la brevedad a través de presidencia@grupojelsa.com.
+            </div>
         </div>
     </section>
 
     <!-- Filosofía Institucional -->
-    <div class="philosophy-banner">
+    <div class="philosophy-banner reveal">
         <h2>"Juntos podemos mejor. Juntos formamos México".</h2>
         <p>Filosofía Institucional — Grupo JELSA México</p>
     </div>
@@ -648,6 +817,86 @@
         <p>Contacto: presidencia@grupojelsa.com | grupojelsa.com</p>
         <p style="margin-top: 10px;">&copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Scripts JavaScript Integrados para Dinamismo Perfecto -->
+    <script>
+        // 1. Reducción dinámica del menú (Sticky Shrink)
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shrunk');
+            } else {
+                navbar.classList.remove('shrunk');
+            }
+        });
+
+        // 2. Animación Scroll Reveal para elementos
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Ejecutar al cargar la página
+
+        // 3. Navegación Activa Automática (Scrollspy)
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 4. Animación de Contadores Numéricos (KPIs)
+        let counted = false;
+        const kpiSection = document.querySelector('.kpi-section');
+        window.addEventListener('scroll', () => {
+            if (kpiSection && !counted) {
+                const sectionTop = kpiSection.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight - 50) {
+                    counted = true;
+                    document.querySelectorAll('.kpi-number').forEach(counter => {
+                        const target = +counter.getAttribute('data-target');
+                        const speed = target > 100 ? 15 : 150;
+                        const updateCount = () => {
+                            const count = +counter.innerText;
+                            const inc = Math.ceil(target / 40);
+                            if (count < target) {
+                                counter.innerText = count + inc > target ? target : count + inc;
+                                setTimeout(updateCount, speed);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                    });
+                }
+            }
+        });
+
+        // 5. Envío de Formulario Limpio e Interactivo
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+        });
+    </script>
 
 </body>
 </html>
