@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo JELSA | Corporativo de Soluciones Integrales</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.ico">
+
+    <!-- Favicon Multi-formato con actualización forzada de caché -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <link rel="icon" type="image/png" href="favicon.png?v=2">
+    <link rel="apple-touch-icon" href="logo-gj.jpg">
+
     <!-- Tipografías corporativas -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --verde-mex: #00843D;
@@ -474,7 +479,7 @@
         }
 
         .contact-info-item p {
-            font-size: 0.95ln;
+            font-size: 0.95rem;
             color: var(--gris-texto);
             line-height: 1.5;
         }
@@ -809,7 +814,7 @@
         </div>
     </section>
 
-    <!-- Contacto con Información Institucional y Formulario -->
+    <!-- Contacto -->
     <section id="contacto" class="reveal">
         <div class="section-title-container">
             <h2 class="section-title">Contacto Corporativo</h2>
@@ -829,8 +834,8 @@
                     <p>+52 81 2871 8502</p>
                 </div>
                 <div class="contact-info-item">
-                    <strong>Correo Electrónico</strong>
-                    <p>presidencia@grupojelsa.com</p>
+                    <strong>Correo Electrónico Directo</strong>
+                    <p><a href="mailto:presidencia@grupojelsa.com" style="color: var(--verde-mex); font-weight: 600; text-decoration: none;">presidencia@grupojelsa.com</a></p>
                 </div>
                 <div class="contact-info-item">
                     <strong>Sitio Web</strong>
@@ -838,7 +843,7 @@
                 </div>
             </div>
 
-            <!-- Formulario -->
+            <!-- Formulario Directo por Mailto -->
             <div class="contact-container reveal">
                 <form id="contactForm">
                     <div class="form-group">
@@ -857,12 +862,12 @@
                         <label for="sector">División / Sector de Interés</label>
                         <select id="sector" required>
                             <option value="">Seleccione una opción</option>
-                            <option value="movilidad">1. Movilidad y Energía Sostenible</option>
-                            <option value="seguridad">2. Seguridad, Inteligencia y Defensa Táctica</option>
-                            <option value="infraestructura">3. Infraestructura, Tecnología y Espacios Corporativos</option>
-                            <option value="comercial">4. Comercial, Abasto, Salud y Alimentos</option>
-                            <option value="consultoria">5. Consultoría, Servicios Legales y Financieros</option>
-                            <option value="comunicacion">6. Comunicación, Publicidad, Medios y Eventos Masivos</option>
+                            <option value="1. Movilidad y Energía Sostenible">1. Movilidad y Energía Sostenible</option>
+                            <option value="2. Seguridad, Inteligencia y Defensa Táctica">2. Seguridad, Inteligencia y Defensa Táctica</option>
+                            <option value="3. Infraestructura, Tecnología y Espacios Corporativos">3. Infraestructura, Tecnología y Espacios Corporativos</option>
+                            <option value="4. Comercial, Abasto, Salud y Alimentos">4. Comercial, Abasto, Salud y Alimentos</option>
+                            <option value="5. Consultoría, Servicios Legales y Financieros">5. Consultoría, Servicios Legales y Financieros</option>
+                            <option value="6. Comunicación, Publicidad, Medios y Eventos Masivos">6. Comunicación, Publicidad, Medios y Eventos Masivos</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -873,7 +878,7 @@
                 </form>
 
                 <div id="successMessage" class="success-message">
-                    ✓ Su requerimiento ha sido registrado con éxito. Un representante corporativo se pondrá en contacto a la brevedad a través de presidencia@grupojelsa.com.
+                    ✓ Se ha abierto su cliente de correo. Por favor haga clic en "Enviar" para despachar su mensaje a presidencia@grupojelsa.com.
                 </div>
             </div>
         </div>
@@ -960,9 +965,29 @@
             }
         });
 
+        // Envío directo a presidencia@grupojelsa.com
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            this.style.display = 'none';
+            
+            const nombre = document.getElementById('nombre').value;
+            const empresa = document.getElementById('empresa').value;
+            const email = document.getElementById('email').value;
+            const sector = document.getElementById('sector').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            const asunto = encodeURIComponent(`Solicitud de Información / Contacto - ${empresa}`);
+            const cuerpo = encodeURIComponent(
+                `SOLICITUD DE CONTACTO CORPORATIVO\n\n` +
+                `Nombre: ${nombre}\n` +
+                `Empresa/Institución: ${empresa}\n` +
+                `Correo del remitente: ${email}\n` +
+                `División de Interés: ${sector}\n\n` +
+                `Detalles del Requerimiento:\n${mensaje}`
+            );
+
+            // Abre el gestor de correo predeterminado
+            window.location.href = `mailto:presidencia@grupojelsa.com?subject=${asunto}&body=${cuerpo}`;
+
             document.getElementById('successMessage').style.display = 'block';
         });
     </script>
