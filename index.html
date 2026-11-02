@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo JELSA | Corporativo de Soluciones Integrales</title>
+    <!-- Icono (Favicon) que aparecerá en la pestaña y en Google -->
+    <link rel="icon" type="image/png" href="favicon.ico">
     <!-- Tipografías corporativas -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --verde-mex: #00843D;
             --rojo-mex: #C8102E;
             --negro-titulo: #000000;
+            --dorado-jelsa: #C5A059;
             --gris-texto: #333333;
             --gris-fondo: #f9f9f9;
             --blanco: #ffffff;
@@ -31,7 +34,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- Header / Menú con Logos de Mayor Tamaño --- */
+        /* --- Header / Menú --- */
         header {
             background: var(--blanco);
             padding: 15px 5%;
@@ -52,18 +55,18 @@
         }
 
         .brand-logo-gj {
-            height: 75px; /* Aumentado para mayor presencia y legibilidad */
+            height: 75px;
             width: auto;
             object-fit: contain;
-            mix-blend-mode: multiply; /* Fusión limpia del fondo blanco */
+            mix-blend-mode: multiply;
             background-color: transparent;
         }
 
         .brand-logo-text {
-            height: 55px; /* Aumentado para mayor presencia y legibilidad */
+            height: 55px;
             width: auto;
             object-fit: contain;
-            mix-blend-mode: multiply; /* Fusión limpia del fondo blanco */
+            mix-blend-mode: multiply;
             background-color: transparent;
         }
 
@@ -369,28 +372,33 @@
             background-color: var(--negro-titulo);
         }
 
-        /* --- Filosofía --- */
+        /* --- Filosofía Institucional con Tipografía Elegante --- */
         .philosophy-banner {
             background-color: var(--negro-titulo);
             color: var(--blanco);
             text-align: center;
-            padding: 80px 10%;
+            padding: 90px 10%;
+            border-top: 2px solid rgba(197, 160, 89, 0.3);
         }
 
         .philosophy-banner h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
             font-style: italic;
-            font-weight: 400;
-            margin-bottom: 15px;
-            line-height: 1.5;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: var(--dorado-jelsa);
+            margin-bottom: 18px;
+            line-height: 1.4;
         }
 
         .philosophy-banner p {
-            font-size: 0.8rem;
-            letter-spacing: 3px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.7);
+            font-weight: 400;
         }
 
         footer {
@@ -439,7 +447,7 @@
 </head>
 <body>
 
-    <!-- Header / Menú con Logos de tamaño optimizado -->
+    <!-- Header / Menú -->
     <header>
         <a href="#inicio" class="brand-container">
             <img src="logo-gj.jpg" alt="Monograma GJ" class="brand-logo-gj" onerror="this.onerror=null; this.src='logo-gj.png';">
@@ -573,71 +581,3 @@
             </div>
             <div class="acronimo-card">
                 <div class="acronimo-letra">L</div>
-                <p>Lealtad y Liderazgo</p>
-            </div>
-            <div class="acronimo-card">
-                <div class="acronimo-letra">S</div>
-                <p>Seguridad y Servicio</p>
-            </div>
-            <div class="acronimo-card">
-                <div class="acronimo-letra">A</div>
-                <p>Abasto y Avance por México</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto">
-        <div class="section-title-container">
-            <h2 class="section-title">Contacto</h2>
-            <div class="deco-line"></div>
-        </div>
-        <div class="contact-container">
-            <form onsubmit="event.preventDefault(); alert('¡Gracias por su mensaje! Su requerimiento ha sido enviado con éxito a presidencia@grupojelsa.com.'); this.reset();">
-                <div class="form-group">
-                    <label for="nombre">Nombre Completo</label>
-                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
-                </div>
-                <div class="form-group">
-                    <label for="empresa">Empresa / Institución</label>
-                    <input type="text" id="empresa" placeholder="Nombre de su organización" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo Electrónico Corporativo</label>
-                    <input type="email" id="email" placeholder="correo@organizacion.com" required>
-                </div>
-                <div class="form-group">
-                    <label for="sector">División / Sector de Interés</label>
-                    <select id="sector" required>
-                        <option value="">Seleccione una opción</option>
-                        <option value="movilidad">1. Movilidad y Energía Sostenible</option>
-                        <option value="seguridad">2. Seguridad, Inteligencia y Defensa Táctica</option>
-                        <option value="infraestructura">3. Infraestructura, Tecnología y Espacios Corporativos</option>
-                        <option value="comercial">4. Comercial, Abasto, Salud y Alimentos</option>
-                        <option value="consultoria">5. Consultoría, Servicios Legales y Financieros</option>
-                        <option value="comunicacion">6. Comunicación, Publicidad, Medios y Eventos Masivos</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Detalles del Requerimiento</label>
-                    <textarea id="mensaje" rows="5" placeholder="¿Cómo podemos colaborar con su proyecto institucional?" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Enviar Mensaje Corporativo</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Filosofía Institucional -->
-    <div class="philosophy-banner">
-        <h2>"Juntos podemos mejor. Juntos formamos México".</h2>
-        <p>Filosofía Institucional — Grupo JELSA México</p>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>Contacto: presidencia@grupojelsa.com | grupojelsa.com</p>
-        <p style="margin-top: 10px;">&copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.</p>
-    </footer>
-
-</body>
-</html>
