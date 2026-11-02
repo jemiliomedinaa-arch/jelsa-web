@@ -581,3 +581,71 @@
             </div>
             <div class="acronimo-card">
                 <div class="acronimo-letra">L</div>
+                <p>Lealtad y Liderazgo</p>
+            </div>
+            <div class="acronimo-card">
+                <div class="acronimo-letra">S</div>
+                <p>Seguridad y Servicio</p>
+            </div>
+            <div class="acronimo-card">
+                <div class="acronimo-letra">A</div>
+                <p>Abasto y Avance por México</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="section-title-container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="contact-container">
+            <form onsubmit="event.preventDefault(); alert('¡Gracias por su mensaje! Su requerimiento ha sido enviado con éxito a presidencia@grupojelsa.com.'); this.reset();">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
+                </div>
+                <div class="form-group">
+                    <label for="empresa">Empresa / Institución</label>
+                    <input type="text" id="empresa" placeholder="Nombre de su organización" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico Corporativo</label>
+                    <input type="email" id="email" placeholder="correo@organizacion.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="sector">División / Sector de Interés</label>
+                    <select id="sector" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="movilidad">1. Movilidad y Energía Sostenible</option>
+                        <option value="seguridad">2. Seguridad, Inteligencia y Defensa Táctica</option>
+                        <option value="infraestructura">3. Infraestructura, Tecnología y Espacios Corporativos</option>
+                        <option value="comercial">4. Comercial, Abasto, Salud y Alimentos</option>
+                        <option value="consultoria">5. Consultoría, Servicios Legales y Financieros</option>
+                        <option value="comunicacion">6. Comunicación, Publicidad, Medios y Eventos Masivos</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Detalles del Requerimiento</label>
+                    <textarea id="mensaje" rows="5" placeholder="¿Cómo podemos colaborar con su proyecto institucional?" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Mensaje Corporativo</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Filosofía Institucional -->
+    <div class="philosophy-banner">
+        <h2>"Juntos podemos mejor. Juntos formamos México".</h2>
+        <p>Filosofía Institucional — Grupo JELSA México</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contacto: presidencia@grupojelsa.com | grupojelsa.com</p>
+        <p style="margin-top: 10px;">&copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
