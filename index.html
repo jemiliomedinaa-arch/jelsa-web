@@ -137,11 +137,11 @@
             background-color: var(--verde-mex);
         }
 
-        /* --- Hero Banner --- */
+        /* --- Hero Banner (Ángel de la Independencia - CDMX al atardecer) --- */
         .hero {
             height: 65vh;
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.6)), 
+                        url('https://upload.wikimedia.org/wikipedia/commons/c/c5/El_Angel_de_la_Independencia_al_atardecer.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -460,7 +460,7 @@
         <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Quienes Somos</a></li>
+                <li><a href="#nosotros">Quiénes Somos</a></li>
                 <li><a href="#sectores">Sectores</a></li>
                 <li><a href="#valores">Valores</a></li>
                 <li><a href="#acronimo">Identidad</a></li>
@@ -469,7 +469,7 @@
         </nav>
     </header>
 
-    <!-- Hero Banner -->
+    <!-- Hero Banner (Ángel de la Independencia - CDMX al atardecer) -->
     <section id="inicio" class="hero">
         <div class="hero-content">
             <h1>GRUPO JELSA MÉXICO</h1>
@@ -478,7 +478,7 @@
         </div>
     </section>
 
-    <!-- 1. Quiénes Somos / Misión / Visión -->
+    <!-- Quiénes Somos / Misión / Visión -->
     <section id="nosotros">
         <div class="section-title-container">
             <h2 class="section-title">Quiénes Somos</h2>
@@ -490,22 +490,22 @@
 
         <div class="mv-grid">
             <div class="mv-card">
-                <h3>2.- MISIÓN</h3>
+                <h3>Misión</h3>
                 <p>Ser el Corporativo líder en México, entregando soluciones integrales de calidad que impulsen el desarrollo operativo y estratégico de los sectores empresarial, público, social y académico, proveyendo productos de calidad, servicios eficientes y asesoría especializada de excelencia.</p>
                 <br>
                 <p>Actuamos como un puente estratégico que conecta el mercado nacional con el sector externo, habilitando la innovación y la competitividad global en cada proyecto que respaldamos, mediante un servicio profesional, ético y orientado a resultados.</p>
             </div>
             <div class="mv-card">
-                <h3>3.- VISIÓN</h3>
+                <h3>Visión</h3>
                 <p>Ser el corporativo referente en México en soluciones integrales, reconocido por nuestra innovación, sustentabilidad y compromiso con el progreso del país, consolidándonos como aliado estratégico del sector público y privado hacia el 2030.</p>
             </div>
         </div>
     </section>
 
-    <!-- 6. Sectores -->
+    <!-- Sectores -->
     <section id="sectores" class="services-section">
         <div class="section-title-container">
-            <h2 class="section-title">6.- SECTORES DE ATENCIÓN</h2>
+            <h2 class="section-title">Sectores de Atención</h2>
             <div class="deco-line"></div>
         </div>
         <div class="services-grid">
@@ -532,10 +532,10 @@
         </div>
     </section>
 
-    <!-- 5. Nuestros Valores -->
+    <!-- Nuestros Valores -->
     <section id="valores">
         <div class="section-title-container">
-            <h2 class="section-title">5.- NUESTROS VALORES</h2>
+            <h2 class="section-title">Nuestros Valores</h2>
             <div class="deco-line"></div>
         </div>
         <div class="valores-grid">
@@ -554,7 +554,7 @@
     <!-- Acrónimo Institucional -->
     <section id="acronimo" class="acronimo-section">
         <div class="section-title-container">
-            <h2 class="section-title" style="color: var(--blanco);">ACRÓNIMO INSTITUCIONAL (JELSA)</h2>
+            <h2 class="section-title" style="color: var(--blanco);">Acrónimo Institucional</h2>
             <div class="deco-line"></div>
         </div>
         <div class="acronimo-grid">
@@ -581,29 +581,29 @@
         </div>
     </section>
 
-    <!-- Contacto -->
+    <!-- Contacto (Apunta directamente a presidencia@grupojelsa.com) -->
     <section id="contacto">
         <div class="section-title-container">
             <h2 class="section-title">Contacto</h2>
             <div class="deco-line"></div>
         </div>
         <div class="contact-container">
-            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Gracias! Su mensaje corporativo ha sido enviado con éxito.');">
+            <form action="mailto:presidencia@grupojelsa.com" method="POST" enctype="text/plain">
                 <div class="form-group">
                     <label for="nombre">Nombre Completo</label>
-                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
+                    <input type="text" id="nombre" name="Nombre" placeholder="Ej. Juan Pérez López" required>
                 </div>
                 <div class="form-group">
                     <label for="empresa">Empresa / Institución</label>
-                    <input type="text" id="empresa" placeholder="Nombre de su organización" required>
+                    <input type="text" id="empresa" name="Empresa" placeholder="Nombre de su organización" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Correo Electrónico Corporativo</label>
-                    <input type="email" id="email" placeholder="correo@organizacion.com" required>
+                    <input type="email" id="email" name="Correo" placeholder="correo@organizacion.com" required>
                 </div>
                 <div class="form-group">
                     <label for="sector">Sector de Interés</label>
-                    <select id="sector" required>
+                    <select id="sector" name="Sector_Interes" required>
                         <option value="">Seleccione una opción</option>
                         <option value="publico">Sector Público</option>
                         <option value="empresarial">Sector Empresarial</option>
@@ -614,17 +614,17 @@
                 </div>
                 <div class="form-group">
                     <label for="mensaje">Detalles del Requerimiento</label>
-                    <textarea id="mensaje" rows="5" placeholder="¿Cómo podemos colaborar con su proyecto institucional?" required></textarea>
+                    <textarea id="mensaje" name="Mensaje" rows="5" placeholder="¿Cómo podemos colaborar con su proyecto institucional?" required></textarea>
                 </div>
                 <button type="submit" class="btn-submit">Enviar Mensaje Corporativo</button>
             </form>
         </div>
     </section>
 
-    <!-- 4. Filosofía Corporativa -->
+    <!-- Filosofía Corporativa -->
     <div class="philosophy-banner">
         <h2>"Juntos podemos mejor. Juntos formamos México. Juntos, por México".</h2>
-        <p>4.- NUESTRA FILOSOFÍA — GRUPO JELSA MÉXICO</p>
+        <p>Filosofía Corporativa — Grupo JELSA México</p>
     </div>
 
     <!-- Footer -->
