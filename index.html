@@ -31,7 +31,7 @@
             scroll-behavior: smooth;
         }
 
-        /* --- Header / Menú --- */
+        /* --- Header / Menú con fusión perfecta del blanco --- */
         header {
             background: var(--blanco);
             padding: 12px 6%;
@@ -44,19 +44,27 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
 
-        .logo-img-container {
+        .brand-container {
             display: flex;
             align-items: center;
+            gap: 15px;
             text-decoration: none;
-            padding: 2px 0;
         }
 
-        .logo-img-container img {
-            height: 70px;
+        .brand-logo-gj {
+            height: 52px;
             width: auto;
-            max-width: 100%;
             object-fit: contain;
-            image-rendering: -webkit-optimize-contrast;
+            mix-blend-mode: multiply; /* Elimina el fondo blanco de la imagen fundiéndolo con el de la página */
+            background-color: transparent;
+        }
+
+        .brand-logo-text {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+            mix-blend-mode: multiply; /* Elimina el fondo blanco de la imagen fundiéndolo con el de la página */
+            background-color: transparent;
         }
 
         nav ul {
@@ -394,15 +402,16 @@
             border-top: 1px solid #1a1a1a;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             header {
                 flex-direction: column;
                 padding: 15px;
                 gap: 15px;
             }
 
-            .logo-img-container img {
-                height: 60px;
+            .brand-container {
+                flex-direction: column;
+                text-align: center;
             }
 
             nav ul {
@@ -422,10 +431,11 @@
 </head>
 <body>
 
-    <!-- Header / Menú (Busca logo-jelsa.png o logo-jelsa.jpg) -->
+    <!-- Header / Menú con fusión de blancos -->
     <header>
-        <a href="#inicio" class="logo-img-container">
-            <img src="logo-jelsa.png" alt="Grupo JELSA México" onerror="this.onerror=null; this.src='logo-jelsa.jpg';">
+        <a href="#inicio" class="brand-container">
+            <img src="logo-gj.jpg" alt="Monograma GJ" class="brand-logo-gj" onerror="this.onerror=null; this.src='logo-gj.png';">
+            <img src="logo-texto.jpg" alt="Grupo JELSA México" class="brand-logo-text" onerror="this.onerror=null; this.src='logo-texto.png';">
         </a>
         <nav>
             <ul>
@@ -568,7 +578,7 @@
         </div>
     </section>
 
-    <!-- Contacto (Seguro y directo con alerta de éxito) -->
+    <!-- Contacto -->
     <section id="contacto">
         <div class="section-title-container">
             <h2 class="section-title">Contacto</h2>
