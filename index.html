@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grupo JELSA | Corporativo de Soluciones Integrales</title>
-    <!-- Tipografía Elegante y Corporativa -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tipografías elegantes para la identidad corporativa -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --verde-mex: #00563B;
-            --verde-oscuro: #003826;
-            --dorado-acento: #C5A059;
-            --negro-titulo: #111111;
-            --gris-texto: #4A4A4A;
-            --gris-fondo: #F8F9FA;
-            --blanco: #FFFFFF;
+            --verde-mex: #00843D;
+            --rojo-mex: #C8102E;
+            --negro-titulo: #000000;
+            --gris-texto: #333333;
+            --gris-fondo: #f9f9f9;
+            --blanco: #ffffff;
             --transicion: all 0.3s ease;
         }
 
@@ -25,404 +24,612 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
             color: var(--gris-texto);
             background-color: var(--blanco);
-            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* HEADER & NAVEGACIÓN */
+        /* --- Header / Barra de Navegación --- */
         header {
-            background-color: var(--blanco);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
+            background: var(--blanco);
+            padding: 15px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--verde-mex);
-            letter-spacing: 1px;
+        /* Logotipo Maquetado en Código */
+        .logo-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             text-decoration: none;
+            color: var(--negro-titulo);
+            padding: 5px 0;
         }
 
-        .logo span {
-            color: var(--dorado-acento);
+        .logo-initials {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: 2px;
         }
 
+        .logo-main-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo-sub-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: 1px;
+        }
+
+        .logo-lines {
+            width: 100%;
+            height: 4px;
+            margin-top: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5px;
+        }
+
+        .line-green {
+            height: 1.5px;
+            background-color: var(--verde-mex);
+            width: 100%;
+        }
+
+        .line-red {
+            height: 1.5px;
+            background-color: var(--rojo-mex);
+            width: 100%;
+        }
+
+        /* Menú de Navegación */
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            align-items: center;
         }
 
-        nav a {
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
             text-decoration: none;
-            color: var(--negro-titulo);
-            font-weight: 500;
-            font-size: 0.95rem;
+            color: var(--gris-texto);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: var(--transicion);
         }
 
-        nav a:hover {
+        nav ul li a:hover {
             color: var(--verde-mex);
         }
 
-        /* HERO SECTION */
+        .btn-contacto-nav {
+            background-color: var(--rojo-mex);
+            color: var(--blanco) !important;
+            padding: 10px 20px;
+            border-radius: 3px;
+        }
+
+        .btn-contacto-nav:hover {
+            background-color: var(--verde-mex);
+        }
+
+        /* --- Hero Banner --- */
         .hero {
-            background: linear-gradient(135deg, var(--verde-oscuro) 0%, var(--verde-mex) 100%);
-            color: var(--blanco);
-            padding: 10rem 2rem 6rem 2rem;
+            height: 65vh;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            position: relative;
+            color: var(--blanco);
+            padding: 0 10%;
         }
 
-        .hero h1 {
+        .hero-content h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.2rem;
+            font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
         }
 
-        .hero p.slogan {
-            font-size: 1.25rem;
-            color: var(--dorado-acento);
-            font-weight: 500;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .hero-filosofia {
+        .hero-content p {
+            font-size: 1.15rem;
             max-width: 800px;
-            margin: 2rem auto 0 auto;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            border-left: 4px solid var(--dorado-acento);
-            font-style: italic;
-            font-size: 1.1rem;
+            margin: 0 auto 25px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
         }
 
-        /* SECCIONES EN GENERAL */
+        .btn-hero {
+            background-color: var(--rojo-mex);
+            color: var(--blanco);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: var(--transicion);
+        }
+
+        .btn-hero:hover {
+            background-color: var(--verde-mex);
+        }
+
+        /* --- Estilos de Secciones --- */
         section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 80px 10%;
+        }
+
+        .section-title-container {
+            text-align: center;
+            margin-bottom: 50px;
         }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .section-title h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             color: var(--negro-titulo);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.8rem;
+            margin-bottom: 10px;
         }
 
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
+        .deco-line {
+            width: 100px;
             height: 3px;
-            background-color: var(--dorado-acento);
+            background: linear-gradient(to right, var(--verde-mex) 50%, var(--rojo-mex) 50%);
+            margin: 0 auto;
         }
 
-        /* QUIÉNES SOMOS & MISIÓN / VISIÓN */
-        .grid-2 {
+        /* --- Quiénes Somos & Misión / Visión --- */
+        .intro-text {
+            text-align: center;
+            font-size: 1.15rem;
+            max-width: 850px;
+            margin: 0 auto 50px;
+            color: var(--gris-texto);
+        }
+
+        .mv-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
-        .card-info {
-            background-color: var(--blanco);
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            border: 1px solid #EAEAEA;
+        .mv-card {
+            background-color: var(--gris-fondo);
+            padding: 40px;
+            border-radius: 4px;
+            border-top: 4px solid var(--verde-mex);
             transition: var(--transicion);
         }
 
-        .card-info:hover {
+        .mv-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
-        .card-info h3 {
+        .mv-card h3 {
             font-family: 'Playfair Display', serif;
             font-size: 1.5rem;
-            color: var(--verde-mex);
-            margin-bottom: 1rem;
-        }
-
-        /* SECTORES */
-        .sectores-bg {
-            background-color: var(--gris-fondo);
-            max-width: 100%;
-        }
-
-        .sectores-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .sectores-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .sector-box {
-            background: var(--blanco);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            border-radius: 8px;
-            border-top: 4px solid var(--verde-mex);
-            font-weight: 600;
             color: var(--negro-titulo);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-            font-size: 1.1rem;
+            margin-bottom: 15px;
         }
 
-        /* VALORES */
+        /* --- Sectores de Atención --- */
+        .services-section {
+            background-color: var(--gris-fondo);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--blanco);
+            padding: 30px 20px;
+            border-radius: 6px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border-bottom: 3px solid transparent;
+            text-align: center;
+            transition: var(--transicion);
+        }
+
+        .service-card:hover {
+            border-bottom: 3px solid var(--rojo-mex);
+            transform: translateY(-3px);
+        }
+
+        .service-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--verde-mex);
+            margin-bottom: 10px;
+        }
+
+        /* --- Valores Corporativos --- */
         .valores-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
 
-        .valor-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.2rem;
+        .valor-card {
             background: var(--gris-fondo);
-            border-radius: 8px;
-            font-weight: 500;
+            padding: 20px 25px;
+            border-left: 4px solid var(--verde-mex);
+            border-radius: 4px;
+            font-weight: 600;
+            color: var(--gris-texto);
+            font-size: 0.95rem;
         }
 
-        .valor-item span {
-            color: var(--dorado-acento);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        /* ACRÓNIMO INSTITUCIONAL */
+        /* --- Acrónimo Institucional --- */
         .acronimo-section {
-            background: linear-gradient(rgba(0,56,38,0.95), rgba(0,56,38,0.95));
+            background-color: #111111;
             color: var(--blanco);
-            max-width: 100%;
-        }
-
-        .acronimo-container {
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
         .acronimo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
 
         .acronimo-card {
             background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 10px;
+            padding: 25px 15px;
+            border-radius: 6px;
             text-align: center;
-            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-top: 3px solid var(--verde-mex);
         }
 
         .acronimo-letra {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            color: var(--dorado-acento);
+            color: var(--verde-mex);
             line-height: 1;
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
         }
 
         .acronimo-card p {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 500;
         }
 
-        /* FOOTER */
-        footer {
-            background-color: #0A0A0A;
-            color: #888888;
-            padding: 3rem 2rem 2rem 2rem;
+        /* --- Contacto --- */
+        .contact-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--blanco);
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: var(--transicion);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--verde-mex);
+            outline: none;
+        }
+
+        .btn-submit {
+            background-color: var(--verde-mex);
+            color: var(--blanco);
+            border: none;
+            width: 100%;
+            padding: 15px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: var(--transicion);
+        }
+
+        .btn-submit:hover {
+            background-color: var(--negro-titulo);
+        }
+
+        /* --- Filosofía --- */
+        .philosophy-banner {
+            background-color: var(--negro-titulo);
+            color: var(--blanco);
             text-align: center;
-            font-size: 0.9rem;
+            padding: 80px 10%;
         }
 
-        footer p.copy {
-            margin-top: 1rem;
-            color: #666666;
+        .philosophy-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            font-weight: 400;
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
 
-        /* RESPONSIVE */
+        .philosophy-banner p {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #0d0d0d;
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.8rem;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        /* --- Adaptabilidad Móvil --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .nav-container { flex-direction: column; gap: 1rem; }
-            nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            header {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul li {
+                margin-left: 0;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVEGACIÓN -->
+    <!-- Header / Menú -->
     <header>
-        <div class="nav-container">
-            <a href="#" class="logo">GRUPO <span>JELSA</span></a>
-            <nav>
-                <ul>
-                    <li><a href="#nosotros">Quiénes Somos</a></li>
-                    <li><a href="#mision-vision">Misión y Visión</a></li>
-                    <li><a href="#sectores">Sectores</a></li>
-                    <li><a href="#valores">Valores</a></li>
-                    <li><a href="#acronimo">Identidad</a></li>
-                </ul>
-            </nav>
-        </div>
+        <a href="#inicio" class="logo-box">
+            <span class="logo-initials">GJ</span>
+            <span class="logo-main-text">Grupo Jelsa</span>
+            <span class="logo-sub-text">México</span>
+            <div class="logo-lines">
+                <div class="line-green"></div>
+                <div class="line-red"></div>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Quienes Somos</a></li>
+                <li><a href="#sectores">Sectores</a></li>
+                <li><a href="#valores">Valores</a></li>
+                <li><a href="#acronimo">Identidad</a></li>
+                <li><a href="#contacto" class="btn-contacto-nav">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- HERO / FILOSOFÍA -->
-    <div class="hero">
-        <h1>GRUPO JELSA</h1>
-        <p class="slogan">Corporativo de Soluciones Integrales — Juntos por México</p>
-        
-        <div class="hero-filosofia">
-            "Juntos podemos mejor. Juntos formamos México. Juntos, por México."
+    <!-- Hero Banner -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>GRUPO JELSA MÉXICO</h1>
+            <p>Corporativo de Soluciones Integrales — Juntos por México</p>
+            <button class="btn-hero" onclick="location.href='#contacto'">Solicitar Información</button>
         </div>
-    </div>
+    </section>
 
-    <!-- 1. QUIÉNES SOMOS -->
+    <!-- 1. Quiénes Somos / Misión / Visión -->
     <section id="nosotros">
-        <div class="section-title">
-            <h2>Quiénes Somos</h2>
+        <div class="section-title-container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <div class="deco-line"></div>
         </div>
-        <div class="card-info" style="max-width: 900px; margin: 0 auto;">
-            <p style="font-size: 1.15rem; text-align: center;">
-                Somos un corporativo mexicano de consultoría y comercialización, dedicado a brindar soluciones integrales a los sectores público y privado. Unimos conocimientos especializados, innovación y compromiso para impulsar el desarrollo seguro, eficiente y sostenible de México, trabajando con ética, responsabilidad y visión de futuro.
-            </p>
-        </div>
-    </section>
+        <p class="intro-text">
+            Somos un corporativo mexicano de consultoría y comercialización, dedicado a brindar soluciones integrales a los sectores público y privado. Unimos conocimientos especializados, innovación y compromiso para impulsar el desarrollo seguro, eficiente y sostenible de México, trabajando con ética, responsabilidad y visión de futuro.
+        </p>
 
-    <!-- 2 & 3. MISIÓN Y VISIÓN -->
-    <section id="mision-vision" style="background-color: var(--gris-fondo); max-width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-title">
-                <h2>Misión y Visión</h2>
+        <div class="mv-grid">
+            <div class="mv-card">
+                <h3>2.- MISIÓN</h3>
+                <p>Ser el Corporativo líder en México, entregando soluciones integrales de calidad que impulsen el desarrollo operativo y estratégico de los sectores empresarial, público, social y académico, proveyendo productos de calidad, servicios eficientes y asesoría especializada de excelencia.</p>
+                <br>
+                <p>Actuamos como un puente estratégico que conecta el mercado nacional con el sector externo, habilitando la innovación y la competitividad global en cada proyecto que respaldamos, mediante un servicio profesional, ético y orientado a resultados.</p>
             </div>
-            <div class="grid-2">
-                <div class="card-info">
-                    <h3>Misión</h3>
-                    <p>Ser el Corporativo líder en México, entregando soluciones integrales de calidad que impulsen el desarrollo operativo y estratégico de los sectores empresarial, público, social y académico, proveyendo productos de calidad, servicios eficientes y asesoría especializada de excelencia.</p>
-                    <br>
-                    <p>Actuamos como un puente estratégico que conecta el mercado nacional con el sector externo, habilitando la innovación y la competitividad global en cada proyecto que respaldamos, mediante un servicio profesional, ético y orientado a resultados.</p>
-                </div>
-                <div class="card-info">
-                    <h3>Visión</h3>
-                    <p>Ser el corporativo referente en México en soluciones integrales, reconocido por nuestra innovación, sustentabilidad y compromiso con el progreso del país, consolidándonos como aliado estratégico del sector público y privado hacia el 2030.</p>
-                </div>
+            <div class="mv-card">
+                <h3>3.- VISIÓN</h3>
+                <p>Ser el corporativo referente en México en soluciones integrales, reconocido por nuestra innovación, sustentabilidad y compromiso con el progreso del país, consolidándonos como aliado estratégico del sector público y privado hacia el 2030.</p>
             </div>
         </div>
     </section>
 
-    <!-- 6. SECTORES -->
-    <div class="sectores-bg" id="sectores">
-        <section class="sectores-container">
-            <div class="section-title">
-                <h2>Sectores de Atención</h2>
+    <!-- 6. Sectores -->
+    <section id="sectores" class="services-section">
+        <div class="section-title-container">
+            <h2 class="section-title">6.- SECTORES DE ATENCIÓN</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h4>Público</h4>
+                <p>Soluciones integrales para la administración e instituciones gubernamentales.</p>
             </div>
-            <div class="sectores-grid">
-                <div class="sector-box">Sector Público</div>
-                <div class="sector-box">Sector Empresarial</div>
-                <div class="sector-box">Sector Académico</div>
-                <div class="sector-box">Sector Social</div>
-                <div class="sector-box">Sector Externo</div>
+            <div class="service-card">
+                <h4>Empresarial</h4>
+                <p>Estrategias y suministros para la competitividad y desarrollo corporativo.</p>
             </div>
-        </section>
-    </div>
+            <div class="service-card">
+                <h4>Académico</h4>
+                <p>Vinculación tecnológica e impulsos al sector educativo superior y de investigación.</p>
+            </div>
+            <div class="service-card">
+                <h4>Social</h4>
+                <p>Proyectos orientados al bienestar social y desarrollo de la comunidad.</p>
+            </div>
+            <div class="service-card">
+                <h4>Externo</h4>
+                <p>Conexión y alianzas estratégicas con el mercado e inversión internacional.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- 5. VALORES -->
+    <!-- 5. Nuestros Valores -->
     <section id="valores">
-        <div class="section-title">
-            <h2>Nuestros Valores</h2>
+        <div class="section-title-container">
+            <h2 class="section-title">5.- NUESTROS VALORES</h2>
+            <div class="deco-line"></div>
         </div>
         <div class="valores-grid">
-            <div class="valor-item"><span>✓</span> Honestidad y Transparencia</div>
-            <div class="valor-item"><span>✓</span> Lealtad y Compromiso</div>
-            <div class="valor-item"><span>✓</span> Profesionalismo</div>
-            <div class="valor-item"><span>✓</span> Trabajo en Equipo</div>
-            <div class="valor-item"><span>✓</span> Confianza e Integridad</div>
-            <div class="valor-item"><span>✓</span> Resolución de Problemas</div>
-            <div class="valor-item"><span>✓</span> Innovación y Formación Continua</div>
-            <div class="valor-item"><span>✓</span> Eficiencia y Pragmatismo</div>
-            <div class="valor-item"><span>✓</span> Cultura Organizacional</div>
+            <div class="valor-card">Honestidad y Transparencia</div>
+            <div class="valor-card">Lealtad y Compromiso</div>
+            <div class="valor-card">Profesionalismo</div>
+            <div class="valor-card">Trabajo en Equipo</div>
+            <div class="valor-card">Confianza e Integridad</div>
+            <div class="valor-card">Resolución de Problemas</div>
+            <div class="valor-card">Innovación y Formación Continua</div>
+            <div class="valor-card">Eficiencia y Pragmatismo</div>
+            <div class="valor-card">Cultura Organizacional</div>
         </div>
     </section>
 
-    <!-- ACRÓNIMO INSTITUCIONAL -->
-    <div class="acronimo-section" id="acronimo">
-        <section class="acronimo-container">
-            <div class="section-title">
-                <h2 style="color: var(--blanco);">Acrónimo Institucional</h2>
+    <!-- Acrónimo Institucional -->
+    <section id="acronimo" class="acronimo-section">
+        <div class="section-title-container">
+            <h2 class="section-title" style="color: var(--blanco);">ACRÓNIMO INSTITUCIONAL (JELSA)</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="acronimo-grid">
+            <div class="acronimo-card">
+                <div class="acronimo-letra">J</div>
+                <p>Justicia y Juridicidad</p>
             </div>
-            <div class="acronimo-grid">
-                <div class="acronimo-card">
-                    <div class="acronimo-letra">J</div>
-                    <p>Justicia y Juridicidad</p>
-                </div>
-                <div class="acronimo-card">
-                    <div class="acronimo-letra">E</div>
-                    <p>Eficiencia y Estrategia</p>
-                </div>
-                <div class="acronimo-card">
-                    <div class="acronimo-letra">L</div>
-                    <p>Lealtad y Liderazgo</p>
-                </div>
-                <div class="acronimo-card">
-                    <div class="acronimo-letra">S</div>
-                    <p>Seguridad y Servicio</p>
-                </div>
-                <div class="acronimo-card">
-                    <div class="acronimo-letra">A</div>
-                    <p>Abasto y Avance por México</p>
-                </div>
+            <div class="acronimo-card">
+                <div class="acronimo-letra">E</div>
+                <p>Eficiencia y Estrategia</p>
             </div>
-        </section>
+            <div class="acronimo-card">
+                <div class="acronimo-letra">L</div>
+                <p>Lealtad y Liderazgo</p>
+            </div>
+            <div class="acronimo-card">
+                <div class="acronimo-letra">S</div>
+                <p>Seguridad y Servicio</p>
+            </div>
+            <div class="acronimo-card">
+                <div class="acronimo-letra">A</div>
+                <p>Abasto y Avance por México</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="section-title-container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="deco-line"></div>
+        </div>
+        <div class="contact-container">
+            <form action="#" method="POST" onsubmit="event.preventDefault(); alert('¡Gracias! Su mensaje corporativo ha sido enviado con éxito.');">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
+                </div>
+                <div class="form-group">
+                    <label for="empresa">Empresa / Institución</label>
+                    <input type="text" id="empresa" placeholder="Nombre de su organización" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico Corporativo</label>
+                    <input type="email" id="email" placeholder="correo@organizacion.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="sector">Sector de Interés</label>
+                    <select id="sector" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="publico">Sector Público</option>
+                        <option value="empresarial">Sector Empresarial</option>
+                        <option value="academico">Sector Académico</option>
+                        <option value="social">Sector Social</option>
+                        <option value="externo">Sector Externo</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Detalles del Requerimiento</label>
+                    <textarea id="mensaje" rows="5" placeholder="¿Cómo podemos colaborar con su proyecto institucional?" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Enviar Mensaje Corporativo</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 4. Filosofía Corporativa -->
+    <div class="philosophy-banner">
+        <h2>"Juntos podemos mejor. Juntos formamos México. Juntos, por México".</h2>
+        <p>4.- NUESTRA FILOSOFÍA — GRUPO JELSA MÉXICO</p>
     </div>
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
-        <p><strong>GRUPO JELSA</strong> — Corporativo de Soluciones Integrales</p>
-        <p class="copy">&copy; 2026 Grupo Jelsa México. Todos los derechos reservados.</p>
+        &copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.
     </footer>
 
 </body>
