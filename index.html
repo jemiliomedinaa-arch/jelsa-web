@@ -35,10 +35,10 @@
             overflow-x: hidden;
         }
 
-        /* --- Header / Menú Dinámico e Inteligente --- */
+        /* --- Header / Menú Inteligente --- */
         header {
             background: var(--blanco);
-            padding: 18px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -147,7 +147,7 @@
                         url('angel-jelsa.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Efecto Parallax Sutil */
+            background-attachment: fixed;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -270,7 +270,7 @@
             margin-bottom: 15px;
         }
 
-        /* --- Contadores Dinámicos (KPIs Corporativos) --- */
+        /* --- KPIs Contadores Dinámicos --- */
         .kpi-section {
             background-color: var(--negro-titulo);
             color: var(--blanco);
@@ -304,7 +304,7 @@
             color: rgba(255,255,255,0.8);
         }
 
-        /* --- Divisiones Estratégicas Interactivas --- */
+        /* --- Divisiones Estratégicas --- */
         .divisions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -318,8 +318,6 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.03);
             border-left: 4px solid var(--verde-mex);
             transition: var(--transicion);
-            position: relative;
-            overflow: hidden;
         }
 
         .division-card:hover {
@@ -436,18 +434,60 @@
             font-weight: 500;
         }
 
-        /* --- Formulario Interactivo --- */
-        .contact-container {
-            max-width: 680px;
+        /* --- Contacto --- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            max-width: 1100px;
             margin: 0 auto;
+            align-items: start;
+        }
+
+        .contact-info-card {
+            background: var(--gris-fondo);
+            padding: 40px;
+            border-radius: 10px;
+            border-top: 4px solid var(--dorado-jelsa);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            height: 100%;
+        }
+
+        .contact-info-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--negro-titulo);
+        }
+
+        .contact-info-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-info-item strong {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--verde-mex);
+            margin-bottom: 5px;
+        }
+
+        .contact-info-item p {
+            font-size: 0.95ln;
+            color: var(--gris-texto);
+            line-height: 1.5;
+        }
+
+        .contact-container {
             background: var(--blanco);
-            padding: 45px;
+            padding: 40px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             border-radius: 10px;
         }
 
         .form-group {
-            margin-bottom: 22px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
@@ -461,7 +501,7 @@
 
         input, select, textarea {
             width: 100%;
-            padding: 14px 18px;
+            padding: 12px 15px;
             border: 1px solid #e0e0e0;
             border-radius: 6px;
             font-family: inherit;
@@ -482,7 +522,7 @@
             color: var(--blanco);
             border: none;
             width: 100%;
-            padding: 16px;
+            padding: 15px;
             font-size: 0.95rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -499,7 +539,6 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
-        /* Mensaje de confirmación dinámico dentro de la página */
         .success-message {
             display: none;
             background-color: #e8f5e9;
@@ -544,11 +583,16 @@
 
         footer {
             background-color: #0d0d0d;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.5);
             text-align: center;
-            padding: 30px 20px;
-            font-size: 0.8rem;
+            padding: 40px 20px;
+            font-size: 0.85rem;
             border-top: 1px solid #1a1a1a;
+            line-height: 1.8;
+        }
+
+        footer p span {
+            color: var(--dorado-jelsa);
         }
 
         /* Keyframes */
@@ -585,6 +629,10 @@
             }
 
             nav ul li { margin-left: 0; }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
 
             section { padding: 60px 5%; }
         }
@@ -761,47 +809,72 @@
         </div>
     </section>
 
-    <!-- Contacto con Respuesta Dinámica -->
+    <!-- Contacto con Información Institucional y Formulario -->
     <section id="contacto" class="reveal">
         <div class="section-title-container">
-            <h2 class="section-title">Contacto</h2>
+            <h2 class="section-title">Contacto Corporativo</h2>
             <div class="deco-line"></div>
         </div>
-        <div class="contact-container">
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre Completo</label>
-                    <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
+        
+        <div class="contact-wrapper">
+            <!-- Información de Contacto -->
+            <div class="contact-info-card reveal">
+                <h3>Oficina Principal</h3>
+                <div class="contact-info-item">
+                    <strong>Dirección</strong>
+                    <p>Calle Retorno 1 #208, Col. Empleados SFEO, C.P. 64909, Monterrey, Nuevo León.</p>
                 </div>
-                <div class="form-group">
-                    <label for="empresa">Empresa / Institución</label>
-                    <input type="text" id="empresa" placeholder="Nombre de su organización" required>
+                <div class="contact-info-item">
+                    <strong>Teléfono</strong>
+                    <p>+52 81 2871 8502</p>
                 </div>
-                <div class="form-group">
-                    <label for="email">Correo Electrónico Corporativo</label>
-                    <input type="email" id="email" placeholder="correo@organizacion.com" required>
+                <div class="contact-info-item">
+                    <strong>Correo Electrónico</strong>
+                    <p>presidencia@grupojelsa.com</p>
                 </div>
-                <div class="form-group">
-                    <label for="sector">División / Sector de Interés</label>
-                    <select id="sector" required>
-                        <option value="">Seleccione una opción</option>
-                        <option value="movilidad">1. Movilidad y Energía Sostenible</option>
-                        <option value="seguridad">2. Seguridad, Inteligencia y Defensa Táctica</option>
-                        <option value="infraestructura">3. Infraestructura, Tecnología y Espacios Corporativos</option>
-                        <option value="comercial">4. Comercial, Abasto, Salud y Alimentos</option>
-                        <option value="consultoria">5. Consultoría, Servicios Legales y Financieros</option>
-                        <option value="comunicacion">6. Comunicación, Publicidad, Medios y Eventos Masivos</option>
-                    </select>
+                <div class="contact-info-item">
+                    <strong>Sitio Web</strong>
+                    <p>grupojelsa.com</p>
                 </div>
-                <div class="form-group">
-                    <label for="mensaje">Detalles del Requerimiento</label>
-                    <textarea id="mensaje" rows="5" placeholder="¿Cómo podemos colaborar con su proyecto institucional?" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Enviar Mensaje Corporativo</button>
-            </form>
+            </div>
 
-            <div id="successMessage" class="success-message">
-                ✓ Su requerimiento ha sido registrado con éxito. Un representante corporativo se pondrá en contacto a la brevedad a través de presidencia@grupojelsa.com.
+            <!-- Formulario -->
+            <div class="contact-container reveal">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa">Empresa / Institución</label>
+                        <input type="text" id="empresa" placeholder="Nombre de su organización" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico Corporativo</label>
+                        <input type="email" id="email" placeholder="correo@organizacion.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sector">División / Sector de Interés</label>
+                        <select id="sector" required>
+                            <option value="">Seleccione una opción</option>
+                            <option value="movilidad">1. Movilidad y Energía Sostenible</option>
+                            <option value="seguridad">2. Seguridad, Inteligencia y Defensa Táctica</option>
+                            <option value="infraestructura">3. Infraestructura, Tecnología y Espacios Corporativos</option>
+                            <option value="comercial">4. Comercial, Abasto, Salud y Alimentos</option>
+                            <option value="consultoria">5. Consultoría, Servicios Legales y Financieros</option>
+                            <option value="comunicacion">6. Comunicación, Publicidad, Medios y Eventos Masivos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Detalles del Requerimiento</label>
+                        <textarea id="mensaje" rows="4" placeholder="¿Cómo podemos colaborar con su proyecto institucional?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Mensaje Corporativo</button>
+                </form>
+
+                <div id="successMessage" class="success-message">
+                    ✓ Su requerimiento ha sido registrado con éxito. Un representante corporativo se pondrá en contacto a la brevedad a través de presidencia@grupojelsa.com.
+                </div>
             </div>
         </div>
     </section>
@@ -814,13 +887,13 @@
 
     <!-- Footer -->
     <footer>
-        <p>Contacto: presidencia@grupojelsa.com | grupojelsa.com</p>
-        <p style="margin-top: 10px;">&copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.</p>
+        <p><span>Dirección:</span> Calle Retorno 1 #208, Col. Empleados SFEO, C.P. 64909, Monterrey, Nuevo León.</p>
+        <p><span>Teléfono:</span> +52 81 2871 8502 | <span>Contacto:</span> presidencia@grupojelsa.com | grupojelsa.com</p>
+        <p style="margin-top: 15px;">&copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Scripts JavaScript Integrados para Dinamismo Perfecto -->
+    <!-- Scripts JavaScript -->
     <script>
-        // 1. Reducción dinámica del menú (Sticky Shrink)
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -830,7 +903,6 @@
             }
         });
 
-        // 2. Animación Scroll Reveal para elementos
         const reveals = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
@@ -842,9 +914,8 @@
             });
         };
         window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll(); // Ejecutar al cargar la página
+        revealOnScroll();
 
-        // 3. Navegación Activa Automática (Scrollspy)
         const sections = document.querySelectorAll('section, header');
         const navLinks = document.querySelectorAll('.nav-link');
         window.addEventListener('scroll', () => {
@@ -863,7 +934,6 @@
             });
         });
 
-        // 4. Animación de Contadores Numéricos (KPIs)
         let counted = false;
         const kpiSection = document.querySelector('.kpi-section');
         window.addEventListener('scroll', () => {
@@ -890,7 +960,6 @@
             }
         });
 
-        // 5. Envío de Formulario Limpio e Interactivo
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             this.style.display = 'none';
