@@ -31,30 +31,33 @@
             scroll-behavior: smooth;
         }
 
-        /* --- Header / Menú Optimizado para el Logotipo Completo --- */
+        /* --- Header / Menú Optimizado para Alta Definición --- */
         header {
             background: var(--blanco);
-            padding: 10px 5%;
+            padding: 12px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
         }
 
         .logo-img-container {
             display: flex;
             align-items: center;
             text-decoration: none;
-            padding: 5px 0;
+            padding: 2px 0;
         }
 
         .logo-img-container img {
-            height: 65px; /* Altura ideal para que se aprecie el emblema y el texto inferior */
+            height: 70px; /* Tamaño amplio para leer con claridad el texto de abajo */
             width: auto;
+            max-width: 100%;
             object-fit: contain;
+            image-rendering: -webkit-optimize-contrast; /* Forzar renderizado nítido */
+            filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.05));
         }
 
         nav ul {
@@ -64,7 +67,7 @@
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin-left: 22px;
         }
 
         nav ul li a {
@@ -401,7 +404,7 @@
             }
 
             .logo-img-container img {
-                height: 55px;
+                height: 60px;
             }
 
             nav ul {
@@ -424,7 +427,8 @@
     <!-- Header / Menú -->
     <header>
         <a href="#inicio" class="logo-img-container">
-            <img src="logo-jelsa.png" alt="Grupo Jelsa México">
+            <!-- Recuerda nombrar tu archivo como logo-jelsa.jpg o logo-jelsa.png -->
+            <img src="logo-jelsa.jpg" alt="Grupo JELSA México">
         </a>
         <nav>
             <ul>
@@ -454,17 +458,17 @@
             <div class="deco-line"></div>
         </div>
         <p class="intro-text">
-            Grupo Jelsa es un corporativo multidisciplinario integrado por especialistas de diversos sectores estratégicos. Nuestra estructura permite ofrecer soluciones integrales mediante divisiones dirigidas por profesionales con experiencia en sus respectivas áreas, coordinando capacidades jurídicas, institucionales, empresariales, tecnológicas, operativas y de gestión para atender proyectos públicos y privados.
+            Grupo Jelsa es un corporativo multidisciplinario integrado por especialistas de diversos sectores estratégicos. Nuestra estructura permite ofrecer soluciones integrales mediante divisiones dirigidas por profesionales con experiencia en sus respectivas áreas, coordinando capacidades jurídicas, institucionales, empresariales, tecnológicas, operativas y de gestión para atender proyectos públicos y privados[cite: 12].
         </p>
 
         <div class="mv-grid" style="margin-top: 50px;">
             <div class="mv-card">
                 <h3>Misión</h3>
-                <p>Ser el Corporativo líder en México, entregando soluciones integrales de calidad que impulsen el desarrollo operativo y estratégico de los sectores empresarial, público, social y académico, proveyendo productos de calidad, servicios eficientes y asesoría especializada de excelencia. Actuamos como un puente estratégico que conecta el mercado nacional con el sector externo, habilitando la innovación y la competitividad global en cada proyecto que respaldamos, mediante un servicio profesional, ético y orientado a resultados.</p>
+                <p>Ser el Corporativo líder en México, entregando soluciones integrales de calidad que impulsen el desarrollo operativo y estratégico de los sectores empresarial, público, social y académico, proveyendo productos de calidad, servicios eficientes y asesoría especializada de excelencia. Actuamos como un puente estratégico que conecta el mercado nacional con el sector externo, habilitando la innovación y la competitividad global en cada proyecto que respaldamos, mediante un servicio profesional, ético y orientado a resultados[cite: 12].</p>
             </div>
             <div class="mv-card">
                 <h3>Visión</h3>
-                <p>Ser el corporativo referente en México en soluciones integrales, reconocido por nuestra innovación, sustentabilidad y compromiso con el progreso del país, consolidándonos como aliado estratégico del sector público y privado hacia el 2030.</p>
+                <p>Ser el corporativo referente en México en soluciones integrales, reconocido por nuestra innovación, sustentabilidad y compromiso con el progreso del país, consolidándonos como aliado estratégico del sector público y privado hacia el 2030[cite: 12].</p>
             </div>
         </div>
     </section>
@@ -478,27 +482,27 @@
         <div class="divisions-grid">
             <div class="division-card">
                 <h4>Movilidad y Energía Sostenible</h4>
-                <p>Transporte y soluciones de energía limpia orientadas al desarrollo sustentable.</p>
+                <p>Transporte y soluciones de energía limpia orientadas al desarrollo sustentable[cite: 14].</p>
             </div>
             <div class="division-card">
                 <h4>Seguridad, Inteligencia y Defensa Táctica</h4>
-                <p>Inteligencia operativa, gestión de riesgos y esquemas de seguridad táctica especializada.</p>
+                <p>Inteligencia operativa, gestión de riesgos y esquemas de seguridad táctica especializada[cite: 14].</p>
             </div>
             <div class="division-card">
                 <h4>Infraestructura, Tecnología y Espacios Corporativos</h4>
-                <p>Desarrollo y habilitación de infraestructura física integral y arquitectura tecnológica corporativa.</p>
+                <p>Desarrollo y habilitación de infraestructura física integral y arquitectura tecnológica corporativa[cite: 14].</p>
             </div>
             <div class="division-card">
                 <h4>Comercial, Abasto, Salud y Alimentos</h4>
-                <p>Soluciones de salud, bienestar, insumos de higiene hospitalaria, alimentos y suministro médico general.</p>
+                <p>Soluciones de salud, bienestar, insumos de higiene hospitalaria, alimentos y suministro médico general[cite: 14].</p>
             </div>
             <div class="division-card">
                 <h4>Consultoría, Servicios Legales y Financieros</h4>
-                <p>Asesoría jurídica corporativa, diseño de estrategia de gobierno y estructuración financiera integral.</p>
+                <p>Asesoría jurídica corporativa, diseño de estrategia de gobierno y estructuración financiera integral[cite: 14].</p>
             </div>
             <div class="division-card">
                 <h4>Comunicación, Publicidad, Medios y Eventos Masivos</h4>
-                <p>Estrategias integrales de difusión en principales espacios publicitarios, transporte público y privado, aeropuertos y sistemas de transporte masivo.</p>
+                <p>Estrategias integrales de difusión en principales espacios publicitarios, transporte público y privado, aeropuertos y sistemas de transporte masivo[cite: 14].</p>
             </div>
         </div>
     </section>
@@ -510,11 +514,11 @@
             <div class="deco-line"></div>
         </div>
         <div class="sectores-grid">
-            <div class="sector-box">Sector Público</div>
-            <div class="sector-box">Sector Empresarial</div>
-            <div class="sector-box">Sector Académico</div>
-            <div class="sector-box">Sector Social</div>
-            <div class="sector-box">Sector Externo</div>
+            <div class="sector-box">Sector Público[cite: 13]</div>
+            <div class="sector-box">Sector Empresarial[cite: 13]</div>
+            <div class="sector-box">Sector Académico[cite: 13]</div>
+            <div class="sector-box">Sector Social[cite: 13]</div>
+            <div class="sector-box">Sector Externo[cite: 13]</div>
         </div>
     </section>
 
@@ -525,15 +529,15 @@
             <div class="deco-line"></div>
         </div>
         <div class="valores-grid">
-            <div class="valor-card">Honestidad y Transparencia</div>
-            <div class="valor-card">Lealtad y Compromiso</div>
-            <div class="valor-card">Profesionalismo</div>
-            <div class="valor-card">Trabajo en Equipo</div>
-            <div class="valor-card">Confianza e Integridad</div>
-            <div class="valor-card">Resolución de Problemas</div>
-            <div class="valor-card">Innovación y Formación Continua</div>
-            <div class="valor-card">Eficiencia y Pragmatismo</div>
-            <div class="valor-card">Cultura Organizacional</div>
+            <div class="valor-card">Honestidad y Transparencia[cite: 13]</div>
+            <div class="valor-card">Lealtad y Compromiso[cite: 13]</div>
+            <div class="valor-card">Profesionalismo[cite: 13]</div>
+            <div class="valor-card">Trabajo en Equipo[cite: 13]</div>
+            <div class="valor-card">Confianza e Integridad[cite: 13]</div>
+            <div class="valor-card">Resolución de Problemas[cite: 13]</div>
+            <div class="valor-card">Innovación y Formación Continua[cite: 13, 14]</div>
+            <div class="valor-card">Eficiencia y Pragmatismo[cite: 14]</div>
+            <div class="valor-card">Cultura Organizacional[cite: 14]</div>
         </div>
     </section>
 
@@ -546,23 +550,23 @@
         <div class="acronimo-grid">
             <div class="acronimo-card">
                 <div class="acronimo-letra">J</div>
-                <p>Justicia y Juridicidad</p>
+                <p>Justicia y Juridicidad[cite: 13]</p>
             </div>
             <div class="acronimo-card">
                 <div class="acronimo-letra">E</div>
-                <p>Eficiencia y Estrategia</p>
+                <p>Eficiencia y Estrategia[cite: 13]</p>
             </div>
             <div class="acronimo-card">
                 <div class="acronimo-letra">L</div>
-                <p>Lealtad y Liderazgo</p>
+                <p>Lealtad y Liderazgo[cite: 13]</p>
             </div>
             <div class="acronimo-card">
                 <div class="acronimo-letra">S</div>
-                <p>Seguridad y Servicio</p>
+                <p>Seguridad y Servicio[cite: 13]</p>
             </div>
             <div class="acronimo-card">
                 <div class="acronimo-letra">A</div>
-                <p>Abasto y Avance por México</p>
+                <p>Abasto y Avance por México[cite: 13]</p>
             </div>
         </div>
     </section>
@@ -611,12 +615,12 @@
     <!-- Filosofía Institucional -->
     <div class="philosophy-banner">
         <h2>"Juntos podemos mejor. Juntos formamos México".</h2>
-        <p>Filosofía Institucional — Grupo JELSA México</p>
+        <p>Filosofía Institucional — Grupo JELSA México[cite: 13]</p>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>Contacto: presidencia@grupojelsa.com | grupojelsa.com</p>
+        <p>Contacto: presidencia@grupojelsa.com | grupojelsa.com[cite: 12]</p>
         <p style="margin-top: 10px;">&copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.</p>
     </footer>
 
