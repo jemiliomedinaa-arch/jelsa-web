@@ -146,6 +146,35 @@
             box-shadow: 0 6px 15px rgba(0, 132, 61, 0.3);
         }
 
+        /* --- Selector de Idiomas EN / ES --- */
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            background: #eee;
+            padding: 3px;
+            border-radius: 20px;
+            margin-left: 15px;
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: var(--transicion);
+            color: #666;
+        }
+
+        .lang-btn.active {
+            background-color: var(--verde-mex);
+            color: var(--blanco);
+            box-shadow: 0 2px 6px rgba(0, 132, 61, 0.3);
+        }
+
         /* --- Hero Banner Dinámico --- */
         .hero {
             height: 70vh;
@@ -646,7 +675,7 @@
 </head>
 <body>
 
-    <!-- Header / Menú Inteligente -->
+    <!-- Header / Menú Inteligente con Selector de Idiomas -->
     <header id="navbar">
         <a href="#inicio" class="brand-container">
             <img src="logo-gj.jpg" alt="Monograma GJ" class="brand-logo-gj" onerror="this.onerror=null; this.src='logo-gj.png';">
@@ -654,12 +683,18 @@
         </a>
         <nav>
             <ul>
-                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
-                <li><a href="#nosotros" class="nav-link">Quiénes Somos</a></li>
-                <li><a href="#divisiones" class="nav-link">Divisiones</a></li>
-                <li><a href="#sectores" class="nav-link">Sectores</a></li>
-                <li><a href="#acronimo" class="nav-link">Identidad</a></li>
-                <li><a href="#contacto" class="btn-contacto-nav">Contacto</a></li>
+                <li><a href="#inicio" class="nav-link active" data-key="nav_home">Inicio</a></li>
+                <li><a href="#nosotros" class="nav-link" data-key="nav_about">Quiénes Somos</a></li>
+                <li><a href="#divisiones" class="nav-link" data-key="nav_divisions">Divisiones</a></li>
+                <li><a href="#sectores" class="nav-link" data-key="nav_sectors">Sectores</a></li>
+                <li><a href="#acronimo" class="nav-link" data-key="nav_identity">Identidad</a></li>
+                <li><a href="#contacto" class="btn-contacto-nav" data-key="nav_contact">Contacto</a></li>
+                <li>
+                    <div class="lang-switch">
+                        <button class="lang-btn active" id="btn-es" onclick="switchLanguage('es')">ES</button>
+                        <button class="lang-btn" id="btn-en" onclick="switchLanguage('en')">EN</button>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
@@ -667,30 +702,30 @@
     <!-- Hero Banner -->
     <section id="inicio" class="hero">
         <div class="hero-content">
-            <h1>GRUPO JELSA MÉXICO</h1>
-            <p>Corporativo de Soluciones Integrales — Juntos por México</p>
-            <button class="btn-hero" onclick="location.href='#contacto'">Solicitar Información</button>
+            <h1 data-key="hero_title">GRUPO JELSA MÉXICO</h1>
+            <p data-key="hero_subtitle">Corporativo de Soluciones Integrales — Juntos por México</p>
+            <button class="btn-hero" onclick="location.href='#contacto'" data-key="hero_btn">Solicitar Información</button>
         </div>
     </section>
 
     <!-- Quiénes Somos -->
     <section id="nosotros" class="reveal">
         <div class="section-title-container">
-            <h2 class="section-title">Quiénes Somos</h2>
+            <h2 class="section-title" data-key="about_title">Quiénes Somos</h2>
             <div class="deco-line"></div>
         </div>
-        <p class="intro-text">
+        <p class="intro-text" data-key="about_text">
             Grupo Jelsa es un corporativo multidisciplinario integrado por especialistas de diversos sectores estratégicos. Nuestra estructura permite ofrecer soluciones integrales mediante divisiones dirigidas por profesionales con experiencia en sus respectivas áreas, coordinando capacidades jurídicas, institucionales, empresariales, tecnológicas, operativas y de gestión para atender proyectos públicos y privados.
         </p>
 
         <div class="mv-grid" style="margin-top: 50px;">
             <div class="mv-card reveal">
-                <h3>Misión</h3>
-                <p>Ser el Corporativo líder en México, entregando soluciones integrales de calidad que impulsen el desarrollo operativo y estratégico de los sectores empresarial, público, social y académico, proveyendo productos de calidad, servicios eficientes y asesoría especializada de excelencia. Actuamos como un puente estratégico que conecta el mercado nacional con el sector externo, habilitando la innovación y la competitividad global en cada proyecto que respaldamos, mediante un servicio profesional, ético y orientado a resultados.</p>
+                <h3 data-key="mission_title">Misión</h3>
+                <p data-key="mission_text">Ser el Corporativo líder en México, entregando soluciones integrales de calidad que impulsen el desarrollo operativo y estratégico de los sectores empresarial, público, social y académico, proveyendo productos de calidad, servicios eficientes y asesoría especializada de excelencia. Actuamos como un puente estratégico que conecta el mercado nacional con el sector externo, habilitando la innovación y la competitividad global en cada proyecto que respaldamos, mediante un servicio profesional, ético y orientado a resultados.</p>
             </div>
             <div class="mv-card reveal">
-                <h3>Visión</h3>
-                <p>Ser el corporativo referente en México en soluciones integrales, reconocido por nuestra innovación, sustentabilidad y compromiso con el progreso del país, consolidándonos como aliado estratégico del sector público y privado hacia el 2030.</p>
+                <h3 data-key="vision_title">Visión</h3>
+                <p data-key="vision_text">Ser el corporativo referente en México en soluciones integrales, reconocido por nuestra innovación, sustentabilidad y compromiso con el progreso del país, consolidándonos como aliado estratégico del sector público y privado hacia el 2030.</p>
             </div>
         </div>
     </section>
@@ -700,19 +735,19 @@
         <div class="kpi-grid">
             <div class="kpi-card">
                 <div class="kpi-number" data-target="6">0</div>
-                <div class="kpi-label">Divisiones Estratégicas</div>
+                <div class="kpi-label" data-key="kpi_divisions">Divisiones Estratégicas</div>
             </div>
             <div class="kpi-card">
                 <div class="kpi-number" data-target="5">0</div>
-                <div class="kpi-label">Sectores de Impacto</div>
+                <div class="kpi-label" data-key="kpi_sectors">Sectores de Impacto</div>
             </div>
             <div class="kpi-card">
                 <div class="kpi-number" data-target="9">0</div>
-                <div class="kpi-label">Valores Corporativos</div>
+                <div class="kpi-label" data-key="kpi_values">Valores Corporativos</div>
             </div>
             <div class="kpi-card">
                 <div class="kpi-number" data-target="2030">0</div>
-                <div class="kpi-label">Visión Estratégica</div>
+                <div class="kpi-label" data-key="kpi_vision">Visión Estratégica</div>
             </div>
         </div>
     </div>
@@ -720,33 +755,33 @@
     <!-- Divisiones Estratégicas Interactivas -->
     <section id="divisiones" style="background-color: var(--gris-fondo);" class="reveal">
         <div class="section-title-container">
-            <h2 class="section-title">Divisiones Estratégicas</h2>
+            <h2 class="section-title" data-key="divisions_title">Divisiones Estratégicas</h2>
             <div class="deco-line"></div>
         </div>
         <div class="divisions-grid">
             <div class="division-card reveal">
-                <h4>1. Movilidad y Energía Sostenible</h4>
-                <p>Transporte y soluciones de energía limpia orientadas al desarrollo sustentable.</p>
+                <h4 data-key="div1_title">1. Movilidad y Energía Sostenible</h4>
+                <p data-key="div1_text">Transporte y soluciones de energía limpia orientadas al desarrollo sustentable.</p>
             </div>
             <div class="division-card reveal">
-                <h4>2. Seguridad, Inteligencia y Defensa Táctica</h4>
-                <p>Inteligencia operativa, gestión de riesgos y esquemas de seguridad táctica especializada.</p>
+                <h4 data-key="div2_title">2. Seguridad, Inteligencia y Defensa Táctica</h4>
+                <p data-key="div2_text">Inteligencia operativa, gestión de riesgos y esquemas de seguridad táctica especializada.</p>
             </div>
             <div class="division-card reveal">
-                <h4>3. Infraestructura, Tecnología y Espacios Corporativos</h4>
-                <p>Desarrollo y habilitación de infraestructura física integral y arquitectura tecnológica corporativa.</p>
+                <h4 data-key="div3_title">3. Infraestructura, Tecnología y Espacios Corporativos</h4>
+                <p data-key="div3_text">Desarrollo y habilitación de infraestructura física integral y arquitectura tecnológica corporativa.</p>
             </div>
             <div class="division-card reveal">
-                <h4>4. Comercial, Abasto, Salud y Alimentos</h4>
-                <p>Soluciones de salud, bienestar, insumos de higiene hospitalaria, alimentos y suministro médico general.</p>
+                <h4 data-key="div4_title">4. Comercial, Abasto, Salud y Alimentos</h4>
+                <p data-key="div4_text">Soluciones de salud, bienestar, insumos de higiene hospitalaria, alimentos y suministro médico general.</p>
             </div>
             <div class="division-card reveal">
-                <h4>5. Consultoría, Servicios Legales y Financieros</h4>
-                <p>Asesoría jurídica corporativa, diseño de estrategia de gobierno y estructuración financiera integral.</p>
+                <h4 data-key="div5_title">5. Consultoría, Servicios Legales y Financieros</h4>
+                <p data-key="div5_text">Asesoría jurídica corporativa, diseño de estrategia de gobierno y estructuración financiera integral.</p>
             </div>
             <div class="division-card reveal">
-                <h4>6. Comunicación, Publicidad, Medios y Eventos Masivos</h4>
-                <p>Estrategias integrales de difusión en principales espacios publicitarios, transporte público y privado, aeropuertos y sistemas de transporte masivo.</p>
+                <h4 data-key="div6_title">6. Comunicación, Publicidad, Medios y Eventos Masivos</h4>
+                <p data-key="div6_text">Estrategias integrales de difusión en principales espacios publicitarios, transporte público y privado, aeropuertos y sistemas de transporte masivo.</p>
             </div>
         </div>
     </section>
@@ -754,63 +789,63 @@
     <!-- Sectores de Impacto -->
     <section id="sectores" class="sectores-container reveal">
         <div class="section-title-container">
-            <h2 class="section-title">Sectores de Impacto</h2>
+            <h2 class="section-title" data-key="sectors_title">Sectores de Impacto</h2>
             <div class="deco-line"></div>
         </div>
         <div class="sectores-grid">
-            <div class="sector-box reveal">Sector Público</div>
-            <div class="sector-box reveal">Sector Empresarial</div>
-            <div class="sector-box reveal">Sector Académico</div>
-            <div class="sector-box reveal">Sector Social</div>
-            <div class="sector-box reveal">Sector Externo</div>
+            <div class="sector-box reveal" data-key="sec_public">Sector Público</div>
+            <div class="sector-box reveal" data-key="sec_corporate">Sector Empresarial</div>
+            <div class="sector-box reveal" data-key="sec_academic">Sector Académico</div>
+            <div class="sector-box reveal" data-key="sec_social">Sector Social</div>
+            <div class="sector-box reveal" data-key="sec_external">Sector Externo</div>
         </div>
     </section>
 
     <!-- Valores -->
     <section id="valores" class="reveal">
         <div class="section-title-container">
-            <h2 class="section-title">Nuestros Valores</h2>
+            <h2 class="section-title" data-key="values_title">Nuestros Valores</h2>
             <div class="deco-line"></div>
         </div>
         <div class="valores-grid">
-            <div class="valor-card reveal">Honestidad y Transparencia</div>
-            <div class="valor-card reveal">Lealtad y Compromiso</div>
-            <div class="valor-card reveal">Profesionalismo</div>
-            <div class="valor-card reveal">Trabajo en Equipo</div>
-            <div class="valor-card reveal">Confianza e Integridad</div>
-            <div class="valor-card reveal">Resolución de Problemas</div>
-            <div class="valor-card reveal">Innovación y Formación Continua</div>
-            <div class="valor-card reveal">Eficiencia y Pragmatismo</div>
-            <div class="valor-card reveal">Cultura Organizacional</div>
+            <div class="valor-card reveal" data-key="val1">Honestidad y Transparencia</div>
+            <div class="valor-card reveal" data-key="val2">Lealtad y Compromiso</div>
+            <div class="valor-card reveal" data-key="val3">Profesionalismo</div>
+            <div class="valor-card reveal" data-key="val4">Trabajo en Equipo</div>
+            <div class="valor-card reveal" data-key="val5">Confianza e Integridad</div>
+            <div class="valor-card reveal" data-key="val6">Resolución de Problemas</div>
+            <div class="valor-card reveal" data-key="val7">Innovación y Formación Continua</div>
+            <div class="valor-card reveal" data-key="val8">Eficiencia y Pragmatismo</div>
+            <div class="valor-card reveal" data-key="val9">Cultura Organizacional</div>
         </div>
     </section>
 
     <!-- Acrónimo Institucional -->
     <section id="acronimo" class="acronimo-section reveal">
         <div class="section-title-container">
-            <h2 class="section-title" style="color: var(--blanco);">Acrónimo Institucional</h2>
+            <h2 class="section-title" style="color: var(--blanco);" data-key="acronym_title">Acrónimo Institucional</h2>
             <div class="deco-line"></div>
         </div>
         <div class="acronimo-grid">
             <div class="acronimo-card reveal">
                 <div class="acronimo-letra">J</div>
-                <p>Justicia y Juridicidad</p>
+                <p data-key="acr_j">Justicia y Juridicidad</p>
             </div>
             <div class="acronimo-card reveal">
                 <div class="acronimo-letra">E</div>
-                <p>Eficiencia y Estrategia</p>
+                <p data-key="acr_e">Eficiencia y Estrategia</p>
             </div>
             <div class="acronimo-card reveal">
                 <div class="acronimo-letra">L</div>
-                <p>Lealtad y Liderazgo</p>
+                <p data-key="acr_l">Lealtad y Liderazgo</p>
             </div>
             <div class="acronimo-card reveal">
                 <div class="acronimo-letra">S</div>
-                <p>Seguridad y Servicio</p>
+                <p data-key="acr_s">Seguridad y Servicio</p>
             </div>
             <div class="acronimo-card reveal">
                 <div class="acronimo-letra">A</div>
-                <p>Abasto y Avance por México</p>
+                <p data-key="acr_a">Abasto y Avance por México</p>
             </div>
         </div>
     </section>
@@ -818,28 +853,28 @@
     <!-- Contacto -->
     <section id="contacto" class="reveal">
         <div class="section-title-container">
-            <h2 class="section-title">Contacto Corporativo</h2>
+            <h2 class="section-title" data-key="contact_title">Contacto Corporativo</h2>
             <div class="deco-line"></div>
         </div>
         
         <div class="contact-wrapper">
             <!-- Información de Contacto -->
             <div class="contact-info-card reveal">
-                <h3>Oficina Principal</h3>
+                <h3 data-key="office_title">Oficina Principal</h3>
                 <div class="contact-info-item">
-                    <strong>Dirección</strong>
-                    <p>Calle Retorno 1 #208, Col. Empleados SFEO, C.P. 64909, Monterrey, Nuevo León.</p>
+                    <strong data-key="info_address_label">Dirección</strong>
+                    <p data-key="info_address_val">Calle Retorno 1 #208, Col. Empleados SFEO, C.P. 64909, Monterrey, Nuevo León.</p>
                 </div>
                 <div class="contact-info-item">
-                    <strong>Teléfono</strong>
+                    <strong data-key="info_phone_label">Teléfono</strong>
                     <p>+52 81 2871 8502</p>
                 </div>
                 <div class="contact-info-item">
-                    <strong>Correo Electrónico Directo</strong>
+                    <strong data-key="info_email_label">Correo Electrónico Directo</strong>
                     <p><a href="mailto:presidencia@grupojelsa.com" style="color: var(--verde-mex); font-weight: 600; text-decoration: none;">presidencia@grupojelsa.com</a></p>
                 </div>
                 <div class="contact-info-item">
-                    <strong>Sitio Web</strong>
+                    <strong data-key="info_web_label">Sitio Web</strong>
                     <p>grupojelsa.com</p>
                 </div>
             </div>
@@ -848,37 +883,37 @@
             <div class="contact-container reveal">
                 <form id="contactForm">
                     <div class="form-group">
-                        <label for="nombre">Nombre Completo</label>
+                        <label for="nombre" data-key="lbl_name">Nombre Completo</label>
                         <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
                     </div>
                     <div class="form-group">
-                        <label for="empresa">Empresa / Institución</label>
+                        <label for="empresa" data-key="lbl_company">Empresa / Institución</label>
                         <input type="text" id="empresa" placeholder="Nombre de su organización" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Correo Electrónico Corporativo</label>
+                        <label for="email" data-key="lbl_email">Correo Electrónico Corporativo</label>
                         <input type="email" id="email" placeholder="correo@organizacion.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="sector">División / Sector de Interés</label>
+                        <label for="sector" data-key="lbl_sector">División / Sector de Interés</label>
                         <select id="sector" required>
-                            <option value="">Seleccione una opción</option>
-                            <option value="1. Movilidad y Energía Sostenible">1. Movilidad y Energía Sostenible</option>
-                            <option value="2. Seguridad, Inteligencia y Defensa Táctica">2. Seguridad, Inteligencia y Defensa Táctica</option>
-                            <option value="3. Infraestructura, Tecnología y Espacios Corporativos">3. Infraestructura, Tecnología y Espacios Corporativos</option>
-                            <option value="4. Comercial, Abasto, Salud y Alimentos">4. Comercial, Abasto, Salud y Alimentos</option>
-                            <option value="5. Consultoría, Servicios Legales y Financieros">5. Consultoría, Servicios Legales y Financieros</option>
-                            <option value="6. Comunicación, Publicidad, Medios y Eventos Masivos">6. Comunicación, Publicidad, Medios y Eventos Masivos</option>
+                            <option value="" data-key="opt_select">Seleccione una opción</option>
+                            <option value="1. Movilidad y Energía Sostenible" data-key="opt1">1. Movilidad y Energía Sostenible</option>
+                            <option value="2. Seguridad, Inteligencia y Defensa Táctica" data-key="opt2">2. Seguridad, Inteligencia y Defensa Táctica</option>
+                            <option value="3. Infraestructura, Tecnología y Espacios Corporativos" data-key="opt3">3. Infraestructura, Tecnología y Espacios Corporativos</option>
+                            <option value="4. Comercial, Abasto, Salud y Alimentos" data-key="opt4">4. Comercial, Abasto, Salud y Alimentos</option>
+                            <option value="5. Consultoría, Servicios Legales y Financieros" data-key="opt5">5. Consultoría, Servicios Legales y Financieros</option>
+                            <option value="6. Comunicación, Publicidad, Medios y Eventos Masivos" data-key="opt6">6. Comunicación, Publicidad, Medios y Eventos Masivos</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="mensaje">Detalles del Requerimiento</label>
+                        <label for="mensaje" data-key="lbl_message">Detalles del Requerimiento</label>
                         <textarea id="mensaje" rows="4" placeholder="¿Cómo podemos colaborar con su proyecto institucional?" required></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">Enviar Mensaje Corporativo</button>
+                    <button type="submit" class="btn-submit" data-key="btn_send">Enviar Mensaje Corporativo</button>
                 </form>
 
-                <div id="successMessage" class="success-message">
+                <div id="successMessage" class="success-message" data-key="success_msg">
                     ✓ Se ha abierto su cliente de correo. Por favor haga clic en "Enviar" para despachar su mensaje a presidencia@grupojelsa.com.
                 </div>
             </div>
@@ -887,19 +922,209 @@
 
     <!-- Filosofía Institucional -->
     <div class="philosophy-banner reveal">
-        <h2>"Juntos podemos mejor. Juntos formamos México".</h2>
-        <p>Filosofía Institucional — Grupo JELSA México</p>
+        <h2 data-key="philosophy_quote">"Juntos podemos mejor. Juntos formamos México".</h2>
+        <p data-key="philosophy_tag">Filosofía Institucional — Grupo JELSA México</p>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p><span>Dirección:</span> Calle Retorno 1 #208, Col. Empleados SFEO, C.P. 64909, Monterrey, Nuevo León.</p>
-        <p><span>Teléfono:</span> +52 81 2871 8502 | <span>Contacto:</span> presidencia@grupojelsa.com | grupojelsa.com</p>
-        <p style="margin-top: 15px;">&copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.</p>
+        <p><span data-key="ft_address_lbl">Dirección:</span> Calle Retorno 1 #208, Col. Empleados SFEO, C.P. 64909, Monterrey, Nuevo León.</p>
+        <p><span data-key="ft_phone_lbl">Teléfono:</span> +52 81 2871 8502 | <span data-key="ft_contact_lbl">Contacto:</span> presidencia@grupojelsa.com | grupojelsa.com</p>
+        <p style="margin-top: 15px;" data-key="ft_rights">&copy; 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados.</p>
     </footer>
 
     <!-- Scripts JavaScript -->
     <script>
+        // --- Diccionario Bilingüe Corporativo ---
+        const translations = {
+            es: {
+                nav_home: "Inicio",
+                nav_about: "Quiénes Somos",
+                nav_divisions: "Divisiones",
+                nav_sectors: "Sectores",
+                nav_identity: "Identidad",
+                nav_contact: "Contacto",
+                hero_title: "GRUPO JELSA MÉXICO",
+                hero_subtitle: "Corporativo de Soluciones Integrales — Juntos por México",
+                hero_btn: "Solicitar Información",
+                about_title: "Quiénes Somos",
+                about_text: "Grupo Jelsa es un corporativo multidisciplinario integrado por especialistas de diversos sectores estratégicos. Nuestra estructura permite ofrecer soluciones integrales mediante divisiones dirigidas por profesionales con experiencia en sus respectivas áreas, coordinando capacidades jurídicas, institucionales, empresariales, tecnológicas, operativas y de gestión para atender proyectos públicos y privados.",
+                mission_title: "Misión",
+                mission_text: "Ser el Corporativo líder en México, entregando soluciones integrales de calidad que impulsen el desarrollo operativo y estratégico de los sectores empresarial, público, social y académico, proveyendo productos de calidad, servicios eficientes y asesoría especializada de excelencia. Actuamos como un puente estratégico que conecta el mercado nacional con el sector externo, habilitando la innovación y la competitividad global en cada proyecto que respaldamos, mediante un servicio profesional, ético y orientado a resultados.",
+                vision_title: "Visión",
+                vision_text: "Ser el corporativo referente en México en soluciones integrales, reconocido por nuestra innovación, sustentabilidad y compromiso con el progreso del país, consolidándonos como aliado estratégico del sector público y privado hacia el 2030.",
+                kpi_divisions: "Divisiones Estratégicas",
+                kpi_sectors: "Sectores de Impacto",
+                kpi_values: "Valores Corporativos",
+                kpi_vision: "Visión Estratégica",
+                divisions_title: "Divisiones Estratégicas",
+                div1_title: "1. Movilidad y Energía Sostenible",
+                div1_text: "Transporte y soluciones de energía limpia orientadas al desarrollo sustentable.",
+                div2_title: "2. Seguridad, Inteligencia y Defensa Táctica",
+                div2_text: "Inteligencia operativa, gestión de riesgos y esquemas de seguridad táctica especializada.",
+                div3_title: "3. Infraestructura, Tecnología y Espacios Corporativos",
+                div3_text: "Desarrollo y habilitación de infraestructura física integral y arquitectura tecnológica corporativa.",
+                div4_title: "4. Comercial, Abasto, Salud y Alimentos",
+                div4_text: "Soluciones de salud, bienestar, insumos de higiene hospitalaria, alimentos y suministro médico general.",
+                div5_title: "5. Consultoría, Servicios Legales y Financieros",
+                div5_text: "Asesoría jurídica corporativa, diseño de estrategia de gobierno y estructuración financiera integral.",
+                div6_title: "6. Comunicación, Publicidad, Medios y Eventos Masivos",
+                div6_text: "Estrategias integrales de difusión en principales espacios publicitarios, transporte público y privado, aeropuertos y sistemas de transporte masivo.",
+                sectors_title: "Sectores de Impacto",
+                sec_public: "Sector Público",
+                sec_corporate: "Sector Empresarial",
+                sec_academic: "Sector Académico",
+                sec_social: "Sector Social",
+                sec_external: "Sector Externo",
+                values_title: "Nuestros Valores",
+                val1: "Honestidad y Transparencia",
+                val2: "Lealtad y Compromiso",
+                val3: "Profesionalismo",
+                val4: "Trabajo en Equipo",
+                val5: "Confianza e Integridad",
+                val6: "Resolución de Problemas",
+                val7: "Innovación y Formación Continua",
+                val8: "Eficiencia y Pragmatismo",
+                val9: "Cultura Organizacional",
+                acronym_title: "Acrónimo Institucional",
+                acr_j: "Justicia y Juridicidad",
+                acr_e: "Eficiencia y Estrategia",
+                acr_l: "Lealtad y Liderazgo",
+                acr_s: "Seguridad y Servicio",
+                acr_a: "Abasto y Avance por México",
+                contact_title: "Contacto Corporativo",
+                office_title: "Oficina Principal",
+                info_address_label: "Dirección",
+                info_address_val: "Calle Retorno 1 #208, Col. Empleados SFEO, C.P. 64909, Monterrey, Nuevo León.",
+                info_phone_label: "Teléfono",
+                info_email_label: "Correo Electrónico Directo",
+                info_web_label: "Sitio Web",
+                lbl_name: "Nombre Completo",
+                lbl_company: "Empresa / Institución",
+                lbl_email: "Correo Electrónico Corporativo",
+                lbl_sector: "División / Sector de Interés",
+                opt_select: "Seleccione una opción",
+                opt1: "1. Movilidad y Energía Sostenible",
+                opt2: "2. Seguridad, Inteligencia y Defensa Táctica",
+                opt3: "3. Infraestructura, Tecnología y Espacios Corporativos",
+                opt4: "4. Comercial, Abasto, Salud y Alimentos",
+                opt5: "5. Consultoría, Servicios Legales y Financieros",
+                opt6: "6. Comunicación, Publicidad, Medios y Eventos Masivos",
+                lbl_message: "Detalles del Requerimiento",
+                btn_send: "Enviar Mensaje Corporativo",
+                success_msg: "✓ Se ha abierto su cliente de correo. Por favor haga clic en \"Enviar\" para despachar su mensaje a presidencia@grupojelsa.com.",
+                philosophy_quote: "\"Juntos podemos mejor. Juntos formamos México\".",
+                philosophy_tag: "Filosofía Institucional — Grupo JELSA México",
+                ft_address_lbl: "Dirección:",
+                ft_phone_lbl: "Teléfono:",
+                ft_contact_lbl: "Contacto:",
+                ft_rights: "© 2026 GRUPO JELSA MÉXICO. Todos los derechos reservados."
+            },
+            en: {
+                nav_home: "Home",
+                nav_about: "About Us",
+                nav_divisions: "Divisions",
+                nav_sectors: "Sectors",
+                nav_identity: "Identity",
+                nav_contact: "Contact",
+                hero_title: "GRUPO JELSA MEXICO",
+                hero_subtitle: "Comprehensive Corporate Solutions — Together for Mexico",
+                hero_btn: "Request Information",
+                about_title: "About Us",
+                about_text: "Grupo Jelsa is a multidisciplinary corporate group composed of specialists across key strategic sectors. Our structure enables us to offer end-to-end solutions led by experienced professionals, coordinating legal, institutional, corporate, technological, operational, and management capabilities to serve public and private sector projects.",
+                mission_title: "Mission",
+                mission_text: "To be Mexico's leading corporate group, delivering high-quality comprehensive solutions that drive the operational and strategic development of corporate, public, social, and academic sectors through premium products, efficient services, and specialized executive advice. We act as a strategic bridge connecting the domestic market with external markets, enabling global innovation and competitiveness across every project we back with professional, ethical, and results-driven service.",
+                vision_title: "Vision",
+                vision_text: "To be Mexico's benchmark corporate group in comprehensive solutions, recognized for innovation, sustainability, and commitment to the nation's progress, establishing ourselves as a strategic partner to both public and private sectors toward 2030.",
+                kpi_divisions: "Strategic Divisions",
+                kpi_sectors: "Impact Sectors",
+                kpi_values: "Corporate Values",
+                kpi_vision: "Strategic Vision",
+                divisions_title: "Strategic Divisions",
+                div1_title: "1. Mobility & Sustainable Energy",
+                div1_text: "Transportation and clean energy solutions driving sustainable development.",
+                div2_title: "2. Security, Intelligence & Tactical Defense",
+                div2_text: "Operational intelligence, risk management, and specialized tactical security models.",
+                div3_title: "3. Infrastructure, Technology & Corporate Spaces",
+                div3_text: "Development and deployment of comprehensive physical infrastructure and corporate tech architecture.",
+                div4_title: "4. Commercial, Supply, Healthcare & Food Systems",
+                div4_text: "Health and wellness solutions, hospital hygiene supplies, food products, and medical supplies.",
+                div5_title: "5. Consulting, Legal & Financial Services",
+                div5_text: "Corporate legal advice, government strategy design, and comprehensive financial structuring.",
+                div6_title: "6. Media, Advertising, Communications & Mass Events",
+                div6_text: "Comprehensive advertising campaigns across public and private transit, airports, and mass transit systems.",
+                sectors_title: "Impact Sectors",
+                sec_public: "Public Sector",
+                sec_corporate: "Corporate Sector",
+                sec_academic: "Academic Sector",
+                sec_social: "Social Sector",
+                sec_external: "International Sector",
+                values_title: "Our Values",
+                val1: "Honesty & Transparency",
+                val2: "Loyalty & Commitment",
+                val3: "Professionalism",
+                val4: "Teamwork",
+                val5: "Trust & Integrity",
+                val6: "Problem Solving",
+                val7: "Innovation & Continuous Learning",
+                val8: "Efficiency & Pragmatism",
+                val9: "Organizational Culture",
+                acronym_title: "Institutional Acronym",
+                acr_j: "Justice and Legality (Justicia y Juridicidad)",
+                acr_e: "Efficiency and Strategy (Eficiencia y Estrategia)",
+                acr_l: "Loyalty and Leadership (Lealtad y Liderazgo)",
+                acr_s: "Security and Service (Seguridad y Servicio)",
+                acr_a: "Supply and Progress for Mexico (Abasto y Avance)",
+                contact_title: "Corporate Contact",
+                office_title: "Headquarters",
+                info_address_label: "Address",
+                info_address_val: "Calle Retorno 1 #208, Col. Empleados SFEO, C.P. 64909, Monterrey, Nuevo León, Mexico.",
+                info_phone_label: "Phone",
+                info_email_label: "Direct Email",
+                info_web_label: "Website",
+                lbl_name: "Full Name",
+                lbl_company: "Company / Institution",
+                lbl_email: "Corporate Email",
+                lbl_sector: "Division / Sector of Interest",
+                opt_select: "Select an option",
+                opt1: "1. Mobility & Sustainable Energy",
+                opt2: "2. Security, Intelligence & Tactical Defense",
+                opt3: "3. Infrastructure, Technology & Corporate Spaces",
+                opt4: "4. Commercial, Supply, Healthcare & Food Systems",
+                opt5: "5. Consulting, Legal & Financial Services",
+                opt6: "6. Media, Advertising, Communications & Mass Events",
+                lbl_message: "Project / Requirement Details",
+                btn_send: "Send Corporate Inquiry",
+                success_msg: "✓ Your email client has opened. Please click \"Send\" to dispatch your message to presidencia@grupojelsa.com.",
+                philosophy_quote: "\"Together we can do better. Together we build Mexico\".",
+                philosophy_tag: "Institutional Philosophy — Grupo JELSA Mexico",
+                ft_address_lbl: "Address:",
+                ft_phone_lbl: "Phone:",
+                ft_contact_lbl: "Contact:",
+                ft_rights: "© 2026 GRUPO JELSA MEXICO. All rights reserved."
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            localStorage.setItem('jelsa_lang', lang);
+        }
+
+        // Cargar preferencia al iniciar
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('jelsa_lang') || 'es';
+            switchLanguage(savedLang);
+        });
+
+        // Sticky Shrink Menu
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -909,6 +1134,7 @@
             }
         });
 
+        // Scroll Reveal
         const reveals = document.querySelectorAll('.reveal');
         const revealOnScroll = () => {
             const windowHeight = window.innerHeight;
@@ -922,6 +1148,7 @@
         window.addEventListener('scroll', revealOnScroll);
         revealOnScroll();
 
+        // Scrollspy Navigation
         const sections = document.querySelectorAll('section, header');
         const navLinks = document.querySelectorAll('.nav-link');
         window.addEventListener('scroll', () => {
@@ -940,6 +1167,7 @@
             });
         });
 
+        // Contadores KPI Dinámicos
         let counted = false;
         const kpiSection = document.querySelector('.kpi-section');
         window.addEventListener('scroll', () => {
